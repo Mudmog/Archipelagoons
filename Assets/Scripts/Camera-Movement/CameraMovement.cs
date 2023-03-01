@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * Created a basic WASD camera movement system
+ */
 public class CameraMovement : MonoBehaviour
 {
 

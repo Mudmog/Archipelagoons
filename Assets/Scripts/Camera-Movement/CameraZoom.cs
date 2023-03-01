@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Adds a zoom to the camera.
+ */
 public class CameraZoom : MonoBehaviour
 {
 
