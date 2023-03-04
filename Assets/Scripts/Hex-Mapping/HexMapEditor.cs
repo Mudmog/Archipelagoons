@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//Code referenced from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
+
 public class HexMapEditor : MonoBehaviour
 {
 	public Color[] colors;
