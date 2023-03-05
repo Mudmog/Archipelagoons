@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d0ad9265081af3147860c1c587f4b6b0
+guid: 28f83733273dbc5479edb7618522c907
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,33 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.029
-    second: {fileID: 2100000, guid: bd218ac6c12d579458a0fb444415a90a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.030
-    second: {fileID: 2100000, guid: 5195fac5f1b66954e940f80198215422, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TexturesCom_Branches0030_1_S.001
-    second: {fileID: 2100000, guid: b736414503f6fb24db5337ec4eb3045e, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TexturesCom_Branches0030_1_S
-    second: {fileID: 2800000, guid: 4434ab13713173446a3621ddd133f75a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: pale sands
-    second: {fileID: 2800000, guid: e18c189628ba17b4c9b1433cc563146c, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: smooth bark
-    second: {fileID: 2800000, guid: 33e17123478a1854bbaa102f353267de, type: 3}
+      name: pink branching coral png.021
+    second: {fileID: 2100000, guid: ac15120b79933a245b60f79c1f7aaaf0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
