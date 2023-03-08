@@ -31,6 +31,8 @@ public class HexMetrics
 
 	public const float elevationPerturbStrength = 1.5f;
 
+	public const int chunkSizeX = 5, chunkSizeZ = 5;
+
 	public static HexEdgeType GetEdgeType(int elevation1, int elevation2)
 	{
 		if (elevation1 == elevation2)
