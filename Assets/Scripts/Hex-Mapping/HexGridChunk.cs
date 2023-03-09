@@ -6,7 +6,7 @@ public class HexGridChunk : MonoBehaviour
 {
 	HexCell[] cells;
 
-	public HexMesh terrain, water;
+	public HexMesh terrain, water, waterShore;
 	Canvas gridCanvas;
 
 	void Awake()
@@ -38,12 +38,14 @@ public class HexGridChunk : MonoBehaviour
 	{
 		terrain.Clear();
 		water.Clear();
+		waterShore.Clear();
 		for (int i = 0; i < cells.Length; i++)
 		{
 			Triangulate(cells[i]);
 		}
 		terrain.Apply();
 		water.Apply();
+		waterShore.Apply();
 	}
 
 	void Triangulate(HexCell cell)
@@ -89,7 +91,7 @@ public class HexGridChunk : MonoBehaviour
 		bridge.y = neighbor.Position.y - cell.Position.y;
 		EdgeVertices e2 = new EdgeVertices(
 			e1.v1 + bridge,
-			e1.v4 + bridge
+			e1.v5 + bridge
 		);
 
 		if (cell.GetEdgeType(direction) == HexEdgeType.Slope)
@@ -104,26 +106,26 @@ public class HexGridChunk : MonoBehaviour
 		HexCell nextNeighbor = cell.GetNeighbor(direction.Next());
 		if (direction <= HexDirection.E && nextNeighbor != null)
 		{
-			Vector3 v5 = e1.v4 + HexMetrics.GetBridge(direction.Next());
+			Vector3 v5 = e1.v5 + HexMetrics.GetBridge(direction.Next());
 			v5.y = nextNeighbor.Position.y;
 			if (cell.Elevation <= neighbor.Elevation)
 			{
 				if (cell.Elevation <= nextNeighbor.Elevation)
 				{
-					TriangulateCorner(e1.v4, cell, e2.v4, neighbor, v5, nextNeighbor);
+					TriangulateCorner(e1.v5, cell, e2.v5, neighbor, v5, nextNeighbor);
 				}
 				else
 				{
-					TriangulateCorner(v5, nextNeighbor, e1.v4, cell, e2.v4, neighbor);
+					TriangulateCorner(v5, nextNeighbor, e1.v5, cell, e2.v5, neighbor);
 				}
 			}
 			else if (neighbor.Elevation <= nextNeighbor.Elevation)
 			{
-				TriangulateCorner(e2.v4, neighbor, v5, nextNeighbor, e1.v4, cell);
+				TriangulateCorner(e2.v5, neighbor, v5, nextNeighbor, e1.v5, cell);
 			}
 			else
 			{
-				TriangulateCorner(v5, nextNeighbor, e1.v4, cell, e2.v4, neighbor);
+				TriangulateCorner(v5, nextNeighbor, e1.v5, cell, e2.v5, neighbor);
 			}
 		}
 	}
@@ -227,30 +229,30 @@ public class HexGridChunk : MonoBehaviour
 		Vector3 right, HexCell rightCell
 	)
 	{
-		Vector3 v3 = HexMetrics.TerraceLerp(begin, left, 1);
-		Vector3 v4 = HexMetrics.TerraceLerp(begin, right, 1);
+		Vector3 v4 = HexMetrics.TerraceLerp(begin, left, 1);
+		Vector3 v5 = HexMetrics.TerraceLerp(begin, right, 1);
 		Color c3 = HexMetrics.TerraceLerp(beginCell.Color, leftCell.Color, 1);
 		Color c4 = HexMetrics.TerraceLerp(beginCell.Color, rightCell.Color, 1);
 
-		terrain.AddTriangle(begin, v3, v4);
+		terrain.AddTriangle(begin, v4, v5);
 		terrain.AddTriangleColor(beginCell.Color, c3, c4);
 
 		for (int i = 2; i < HexMetrics.terraceSteps; i++)
 		{
-			Vector3 v1 = v3;
-			Vector3 v2 = v4;
+			Vector3 v1 = v4;
+			Vector3 v2 = v5;
 			Color c1 = c3;
 			Color c2 = c4;
-			v3 = HexMetrics.TerraceLerp(begin, left, i);
-			v4 = HexMetrics.TerraceLerp(begin, right, i);
+			v4 = HexMetrics.TerraceLerp(begin, left, i);
+			v5 = HexMetrics.TerraceLerp(begin, right, i);
 			c3 = HexMetrics.TerraceLerp(beginCell.Color, leftCell.Color, i);
 			c4 = HexMetrics.TerraceLerp(beginCell.Color, rightCell.Color, i);
-			terrain.AddQuad(v1, v2, v3, v4);
+			terrain.AddQuad(v1, v2, v4, v5);
 			terrain.AddQuadColor(c1, c2, c3, c4);
 		}
 
 
-		terrain.AddQuad(v3, v4, left, right);
+		terrain.AddQuad(v4, v5, left, right);
 		terrain.AddQuadColor(c3, c4, leftCell.Color, rightCell.Color);
 	}
 
@@ -347,9 +349,11 @@ public class HexGridChunk : MonoBehaviour
 	{
 		terrain.AddTriangle(center, edge.v1, edge.v2);
 		terrain.AddTriangleColor(color);
-		terrain.AddTriangle(center, edge.v2, edge.v3);
+		terrain.AddTriangle(center, edge.v2, edge.v4);
 		terrain.AddTriangleColor(color);
 		terrain.AddTriangle(center, edge.v3, edge.v4);
+		terrain.AddTriangleColor(color);
+		terrain.AddTriangle(center, edge.v4, edge.v5);
 		terrain.AddTriangleColor(color);
 	}
 
@@ -360,9 +364,11 @@ public class HexGridChunk : MonoBehaviour
 	{
 		terrain.AddQuad(e1.v1, e1.v2, e2.v1, e2.v2);
 		terrain.AddQuadColor(c1, c2);
-		terrain.AddQuad(e1.v2, e1.v3, e2.v2, e2.v3);
+		terrain.AddQuad(e1.v2, e1.v4, e2.v2, e2.v4);
 		terrain.AddQuadColor(c1, c2);
 		terrain.AddQuad(e1.v3, e1.v4, e2.v3, e2.v4);
+		terrain.AddQuadColor(c1, c2);
+		terrain.AddQuad(e1.v4, e1.v5, e2.v4, e2.v5);
 		terrain.AddQuadColor(c1, c2);
 	}
 
@@ -371,19 +377,29 @@ public class HexGridChunk : MonoBehaviour
 )
 	{
 		center.y = cell.WaterSurfaceY;
-		Vector3 c1 = center + HexMetrics.GetFirstSolidCorner(direction);
-		Vector3 c2 = center + HexMetrics.GetSecondSolidCorner(direction);
+
+		HexCell neighbor = cell.GetNeighbor(direction);
+		if (neighbor != null && !neighbor.IsUnderwater)
+		{
+			TriangulateWaterShore(direction, cell, neighbor, center);
+		}
+		else
+		{
+			TriangulateOpenWater(direction, cell, neighbor, center);
+		}
+
+	}
+	void TriangulateOpenWater(
+			HexDirection direction, HexCell cell, HexCell neighbor, Vector3 center
+		)
+		{
+			Vector3 c1 = center + HexMetrics.GetFirstWaterCorner(direction);
+		Vector3 c2 = center + HexMetrics.GetSecondWaterCorner(direction);
 
 		water.AddTriangle(center, c1, c2);
-		if (direction <= HexDirection.SE)
+		if (direction <= HexDirection.SE && neighbor != null)
 		{
-			HexCell neighbor = cell.GetNeighbor(direction);
-			if (neighbor == null || !neighbor.IsUnderwater)
-			{
-				return;
-			}
-
-			Vector3 bridge = HexMetrics.GetBridge(direction);
+			Vector3 bridge = HexMetrics.GetWaterBridge(direction);
 			Vector3 e1 = c1 + bridge;
 			Vector3 e2 = c2 + bridge;
 
@@ -397,10 +413,54 @@ public class HexGridChunk : MonoBehaviour
 					return;
 				}
 				water.AddTriangle(
-					c2, e2, c2 + HexMetrics.GetBridge(direction.Next())
+					c2, e2, c2 + HexMetrics.GetWaterBridge(direction.Next())
 				);
 			}
 		}
 
+	}
+
+	void TriangulateWaterShore(
+		HexDirection direction, HexCell cell, HexCell neighbor, Vector3 center
+	)
+	{
+		EdgeVertices e1 = new EdgeVertices(
+				center + HexMetrics.GetFirstWaterCorner(direction),
+				center + HexMetrics.GetSecondWaterCorner(direction)
+			);
+		waterShore.AddTriangle(center, e1.v1, e1.v2);
+		waterShore.AddTriangle(center, e1.v2, e1.v3);
+		waterShore.AddTriangle(center, e1.v3, e1.v4);
+		waterShore.AddTriangle(center, e1.v4, e1.v5);
+
+		Vector3 center2 = neighbor.Position;
+		center2.y = center.y;
+		EdgeVertices e2 = new EdgeVertices(
+			center2 + HexMetrics.GetSecondSolidCorner(direction.Opposite()),
+			center2 + HexMetrics.GetFirstSolidCorner(direction.Opposite())
+		);
+		waterShore.AddQuad(e1.v1, e1.v2, e2.v1, e2.v2);
+		waterShore.AddQuad(e1.v2, e1.v3, e2.v2, e2.v3);
+		waterShore.AddQuad(e1.v3, e1.v4, e2.v3, e2.v4);
+		waterShore.AddQuad(e1.v4, e1.v5, e2.v4, e2.v5);
+		waterShore.AddQuadUV(0f, 0f, 0f, 1f);
+		waterShore.AddQuadUV(0f, 0f, 0f, 1f);
+		waterShore.AddQuadUV(0f, 0f, 0f, 1f);
+		waterShore.AddQuadUV(0f, 0f, 0f, 1f);
+
+		HexCell nextNeighbor = cell.GetNeighbor(direction.Next());
+		if (nextNeighbor != null)
+		{
+			Vector3 v3 = nextNeighbor.Position + (nextNeighbor.IsUnderwater ?
+				HexMetrics.GetFirstWaterCorner(direction.Previous()) :
+				HexMetrics.GetFirstSolidCorner(direction.Previous()));
+			v3.y = center.y;
+			waterShore.AddTriangle( e1.v5, e2.v5, v3);
+			waterShore.AddTriangleUV(
+				new Vector2(0f, 0f),
+				new Vector2(0f, 1f),
+				new Vector2(0f, nextNeighbor.IsUnderwater ? 0f : 1f)
+			);
+		}
 	}
 }

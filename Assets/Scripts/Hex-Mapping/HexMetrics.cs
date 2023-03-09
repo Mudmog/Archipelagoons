@@ -35,6 +35,9 @@ public class HexMetrics
 
 	public const float waterElevationOffset = -0.5f;
 
+	public const float waterFactor = 0.6f;
+
+	public const float waterBlendFactor = 1f - waterFactor;
 
 	public static HexEdgeType GetEdgeType(int elevation1, int elevation2)
 	{
@@ -113,5 +116,21 @@ public class HexMetrics
 		position.x += (sample.x * 2f - 1f) * cellPerturbStrength;
 		position.z += (sample.z * 2f - 1f) * cellPerturbStrength;
 		return position;
+	}
+
+	public static Vector3 GetFirstWaterCorner(HexDirection direction)
+	{
+		return corners[(int)direction] * waterFactor;
+	}
+
+	public static Vector3 GetSecondWaterCorner(HexDirection direction)
+	{
+		return corners[(int)direction + 1] * waterFactor;
+	}
+
+	public static Vector3 GetWaterBridge(HexDirection direction)
+	{
+		return (corners[(int)direction] + corners[(int)direction + 1]) *
+			waterBlendFactor;
 	}
 }
