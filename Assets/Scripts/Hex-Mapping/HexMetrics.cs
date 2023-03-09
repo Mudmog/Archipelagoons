@@ -33,6 +33,9 @@ public class HexMetrics
 
 	public const int chunkSizeX = 5, chunkSizeZ = 5;
 
+	public const float waterElevationOffset = -0.5f;
+
+
 	public static HexEdgeType GetEdgeType(int elevation1, int elevation2)
 	{
 		if (elevation1 == elevation2)
@@ -103,4 +106,12 @@ public class HexMetrics
     {
 		return noiseSource.GetPixelBilinear(position.x * noiseScale, position.z * noiseScale);
     }
+
+	public static Vector3 Perturb(Vector3 position)
+	{
+		Vector4 sample = SampleNoise(position);
+		position.x += (sample.x * 2f - 1f) * cellPerturbStrength;
+		position.z += (sample.z * 2f - 1f) * cellPerturbStrength;
+		return position;
+	}
 }
