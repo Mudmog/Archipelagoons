@@ -1,4 +1,4 @@
-﻿Shader "Custom/waterShore" {
+﻿Shader "Custom/Water Shore" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -12,7 +12,9 @@
 		CGPROGRAM
 		#pragma surface surf Standard alpha
 		#pragma target 3.0
+
 		#include "Water.cginc"
+
 		sampler2D _MainTex;
 
 		struct Input {
@@ -25,7 +27,6 @@
 		fixed4 _Color;
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-
 			float shore = IN.uv_MainTex.y;
 			float foam = Foam(shore, IN.worldPos.xz, _MainTex);
 			float waves = Waves(IN.worldPos.xz, _MainTex);

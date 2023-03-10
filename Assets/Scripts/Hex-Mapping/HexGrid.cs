@@ -82,6 +82,21 @@ public class HexGrid : MonoBehaviour
 		return cells[index];
 	}
 
+	public HexCell GetCell(HexCoordinates coordinates)
+	{
+		int z = coordinates.Z;
+		if (z < 0 || z >= cellCountZ)
+		{
+			return null;
+		}
+		int x = coordinates.X + z / 2;
+		if (x < 0 || x >= cellCountX)
+		{
+			return null;
+		}
+		return cells[x + z * cellCountX];
+	}
+
 	void CreateCell(int x, int z, int i)
 	{
 		Vector3 position;
@@ -92,6 +107,7 @@ public class HexGrid : MonoBehaviour
 		position.x = (x + z * 0.5f - z / 2) * (HexMetrics.innerRadius * 2f);
 
 		HexCell cell = cells[i] = Instantiate<HexCell>(cellPrefab);
+		cell.transform.localPosition = position;
 		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
 		cell.Color = defaultColor;
 
@@ -118,9 +134,6 @@ public class HexGrid : MonoBehaviour
 				}
 			}
 		}
-
-		cell.transform.localPosition = position;
-		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
 
 		Text label = Instantiate<Text>(cellLabelPrefab);
 		label.rectTransform.anchoredPosition =

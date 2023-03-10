@@ -58,7 +58,9 @@ public class HexGridChunk : MonoBehaviour
 		{
 			Triangulate(d, cell);
 		}
-		features.AddFeature(cell.Position);
+		if (!cell.IsUnderwater) { 
+			features.AddFeature(cell.Position);
+		}
 	}
 
 	void Triangulate(HexDirection direction, HexCell cell)

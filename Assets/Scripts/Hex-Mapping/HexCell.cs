@@ -19,28 +19,6 @@ public class HexCell : MonoBehaviour
 
     public HexGridChunk chunk;
 
-    public int Elevation
-    {
-        get { return elevation; }
-
-        set { 
-            if (elevation == value)
-                return;
-            Vector3 position = transform.localPosition;
-            position.y = value * HexMetrics.elevationStep;
-            position.y += (HexMetrics.SampleNoise(position).y * 2f - 1f) * HexMetrics.elevationPerturbStrength;
-            transform.localPosition = position;
-
-            Vector3 uiPosition = uiRect.localPosition;
-            uiPosition.z = -position.y;
-            uiRect.localPosition = uiPosition;
-            Refresh();
-
-        }
-    }
-
-    int elevation = int.MinValue;
-
     public Color Color
     {
         get
@@ -60,6 +38,34 @@ public class HexCell : MonoBehaviour
 
     Color color;
 
+    public int Elevation
+    {
+        get
+        {
+            return elevation;
+        }
+        set
+        {
+            if (elevation == value)
+            {
+                return;
+            }
+            elevation = value;
+            Vector3 position = transform.localPosition;
+            position.y = value * HexMetrics.elevationStep;
+            position.y +=
+                (HexMetrics.SampleNoise(position).y * 2f - 1f) *
+                HexMetrics.elevationPerturbStrength;
+            transform.localPosition = position;
+
+            Vector3 uiPosition = uiRect.localPosition;
+            uiPosition.z = -position.y;
+            uiRect.localPosition = uiPosition;
+
+            Refresh();
+        }
+    }
+
     public int WaterLevel
     {
         get
@@ -77,6 +83,7 @@ public class HexCell : MonoBehaviour
         }
     }
 
+    int elevation = int.MinValue;
     int waterLevel;
 
     public bool IsUnderwater
@@ -111,6 +118,11 @@ public class HexCell : MonoBehaviour
                 }
             }
         }
+    }
+
+    void RefreshSelfOnly()
+    {
+        chunk.Refresh();
     }
 
     public HexCell GetNeighbor (HexDirection direction)

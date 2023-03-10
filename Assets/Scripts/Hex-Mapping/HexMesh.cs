@@ -125,6 +125,7 @@ public class HexMesh : MonoBehaviour {
 		}
 		if (useUVCoordinates)
 		{
+			Debug.Log(ListPool<Vector2>.Get());
 			uvs = ListPool<Vector2>.Get();
 		}
 		triangles = ListPool<int>.Get();
@@ -140,6 +141,7 @@ public class HexMesh : MonoBehaviour {
 		}
 		if (useUVCoordinates)
 		{
+			Debug.Log(uvs.Count);
 			hexMesh.SetUVs(0, uvs);
 			ListPool<Vector2>.Add(uvs);
 		}
