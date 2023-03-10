@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 1a2b2495b5c44574dac7d01aa35765ec
+guid: 5992387d6792d724088c8895b8b6644e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.031
-    second: {fileID: 2100000, guid: 2c98550181defd946900730ed8f84d0b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.032
-    second: {fileID: 2100000, guid: 458b2eeee9ddcdd4c88c1a99d86bb485, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TexturesCom_Branches0030_1_S.003
-    second: {fileID: 2100000, guid: 51354b9ec64e30245b6ff9369a23b9fc, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TexturesCom_Branches0030_1_S
-    second: {fileID: 2800000, guid: 3c67156134a3931439aa8bddd3176a7d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: smooth bark
-    second: {fileID: 2800000, guid: 1980626f2b3f3d74aa4085201d8f6c1c, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
