@@ -1,2 +1,2 @@
 # archipelagoons
-A digital strategy board game about sea critters battling in fleets.
+A digital strategy board game where sea critters wage war over islands.
