@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.EventSystems;
 
 //Code referenced from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
 
 public class HexMapEditor : MonoBehaviour
 {
-	public Color[] colors;
 
 	public HexGrid hexGrid;
-
-	private Color activeColor;
 
 	int activeElevation;
 	int activeWaterLevel;
 	int activeUrbanLevel;
 	int activePlantLevel;
 
-	bool applyColor;
+	int activeTerrainTypeIndex;
 
 	bool applyElevation = true;
 	bool applyWaterLevel = true;
@@ -27,13 +25,6 @@ public class HexMapEditor : MonoBehaviour
 
 	int brushSize;
 
-	
-	
-
-	void Awake()
-	{
-		SelectColor(0);
-	}
 
 	void Update()
 	{
@@ -78,10 +69,10 @@ public class HexMapEditor : MonoBehaviour
 	}
 	void EditCell(HexCell cell)
 	{
-		if (cell) { 
-			if (applyColor)
+		if (cell) {
+			if (activeTerrainTypeIndex >= 0)
 			{
-				cell.Color = activeColor;
+				cell.TerrainTypeIndex = activeTerrainTypeIndex;
 			}
 			if (applyElevation)
 			{
@@ -101,14 +92,6 @@ public class HexMapEditor : MonoBehaviour
 			}
 		}
 
-	}
-
-	public void SelectColor(int index)
-	{
-		applyColor = index >= 0;
-		if (applyColor) { 
-			activeColor = colors[index];
-		}
 	}
 
 	public void SetElevation (float elevation)
@@ -147,6 +130,42 @@ public class HexMapEditor : MonoBehaviour
 	public void SetPlantLevel(float level)
 	{
 		activePlantLevel = (int)level;
+	}
+	public void SetTerrainTypeIndex(int index)
+	{
+		activeTerrainTypeIndex = index;
+	}
+	public void Save()
+	{
+		string path = Path.Combine("../archipelagoons/Assets/Maps", "test.map");
+		using (
+			BinaryWriter writer =
+				new BinaryWriter(File.Open(path, FileMode.Create))
+		)
+		{
+			writer.Write(0);
+			hexGrid.Save(writer);
+		}
+	}
+
+	public void Load()
+	{
+		string path = Path.Combine("../archipelagoons/Assets/Maps", "test.map");
+		using (
+			BinaryReader reader =
+				new BinaryReader(File.OpenRead(path))
+		)
+		{
+			int header = reader.ReadInt32();
+			if (header == 0)
+			{
+				hexGrid.Load(reader);
+			}
+			else
+			{
+				Debug.LogWarning("Unknown map format " + header);
+			}
+		}
 	}
 
 }
