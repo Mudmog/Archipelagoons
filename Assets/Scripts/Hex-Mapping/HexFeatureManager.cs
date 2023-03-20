@@ -37,11 +37,26 @@ public class HexFeatureManager : MonoBehaviour
 		{
 			return;
 		}
-		Transform instance = Instantiate(prefab);
-		position.y += instance.localScale.y * 0.5f;
-		instance.localPosition = HexMetrics.Perturb(position);
-		instance.localRotation = Quaternion.Euler(0f, 360f * hash.e, 0f);
-		instance.SetParent(container, false);
+		if (cell.IsUnderwater && prefab.tag.Equals("Underwater")) {
+			Transform instance = Instantiate(prefab);
+			position.y += instance.localScale.y * 0.5f;
+			instance.localPosition = HexMetrics.Perturb(position);
+			instance.localRotation = Quaternion.Euler(0f, 360f * hash.e, 0f);
+			instance.SetParent(container, false);
+		}
+		else if (!cell.IsUnderwater && prefab.tag.Equals("Land"))
+        {
+			Transform instance = Instantiate(prefab);
+			position.y += instance.localScale.y * 0.5f;
+			instance.localPosition = HexMetrics.Perturb(position);
+			instance.localRotation = Quaternion.Euler(0f, 360f * hash.e, 0f);
+			instance.SetParent(container, false);
+		}
+		else
+        {
+			return;
+        }
+
 	}
 
 	Transform PickPrefab(HexFeatureCollection[] collection, int level, float hash, float choice)

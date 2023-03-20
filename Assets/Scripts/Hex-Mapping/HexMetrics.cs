@@ -44,6 +44,8 @@ public class HexMetrics
 
 	public const float hashGridScale = 0.25f;
 
+	public static Color[] colors;
+
 
 	public static HexEdgeType GetEdgeType(int elevation1, int elevation2)
 	{
