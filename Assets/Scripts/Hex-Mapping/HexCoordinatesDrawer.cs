@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+//Code referenced from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
+
 [CustomPropertyDrawer(typeof(HexCoordinates))]
 public class HexCoordinatesDrawer : PropertyDrawer
 {

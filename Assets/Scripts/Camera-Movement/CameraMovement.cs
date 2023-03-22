@@ -10,6 +10,9 @@ public class CameraMovement : MonoBehaviour
 {
 
     Vector3 cPosition;
+    Vector3 difference;
+
+    bool drag;
 
     public float cameraSpeed = 50f;
         
@@ -38,7 +41,10 @@ public class CameraMovement : MonoBehaviour
         {
             cPosition.z -= cameraSpeed * Time.deltaTime;
         }
-        
+ 
+
         this.transform.position = cPosition;
     }
+
+
 }
