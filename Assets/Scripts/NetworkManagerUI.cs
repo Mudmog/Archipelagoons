@@ -27,4 +27,4 @@ public class NetworkManagerUI : MonoBehaviour
     }
 }
 
-//Code referenced from https://www.youtube.com/watch?v=3yuBOB3VrCk&t=226s
+/* Code referenced from https://www.youtube.com/watch?v=3yuBOB3VrCk&t=226s */

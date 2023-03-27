@@ -26,7 +26,6 @@ public class NetworkCommandLine : MonoBehaviour
                     netManager.StartHost();
                     break;
                 case "client":
-
                     netManager.StartClient();
                     break;
             }
