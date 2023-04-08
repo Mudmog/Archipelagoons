@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MultiplayerNetwork.unity
     guid: 908439ee8bdf0644f9c8a9a788b5bbc4
+  - enabled: 0
+    path: Assets/Scenes/MovementTesting.unity
+    guid: 8c2de3f4a3549224b85d77fd0f75f0c3
   m_configObjects: {}
