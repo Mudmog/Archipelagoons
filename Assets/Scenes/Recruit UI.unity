@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 424231343}
   - component: {fileID: 424231342}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Auction Phase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,7 +826,7 @@ RectTransform:
   m_GameObject: {fileID: 424231340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95581, y: 0.95581, z: 0.95581}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 923328150}
@@ -834,7 +834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 181, y: 114}
+  m_AnchoredPosition: {x: 181, y: 107}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424231342
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Recruiting
+  m_text: 'Auction
 
     Phase'
   m_isRightToLeft: 0
@@ -886,8 +886,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.1
-  m_fontSizeBase: 48.1
+  m_fontSize: 54.86
+  m_fontSizeBase: 54.86
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1083,16 +1083,28 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 99.31901
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 99.31901
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 99.31901
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.49
+      value: -7.0635
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.21
+      value: -0.18573
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.24
+      value: -28.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0546f3138cec08479a10f1c6cb87182, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1922,7 +1934,7 @@ RectTransform:
   m_GameObject: {fileID: 993742692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78785, y: 0.78785, z: 0.78785}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 923328150}
@@ -1930,7 +1942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 25, y: 203}
+  m_AnchoredPosition: {x: 25, y: 186}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993742694
