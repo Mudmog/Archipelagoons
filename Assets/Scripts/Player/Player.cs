@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
-public class Player
+public class Player : MonoBehaviour
 {
     private int[] hand;
     private int pearls;
@@ -31,5 +31,12 @@ public class Player
     void Update()
     {
         
+    }
+
+    public void changePearls(int pearlAmount) {
+        pearls += pearlAmount;
+    }
+    public int getPearls() {
+        return pearls;
     }
 }

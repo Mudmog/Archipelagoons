@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         map.Load();
         map.enabled = false;
         UpdatePhase(GamePhase.STARTUP);
-
     }
     void Update() {
          UpdatePhase(_currentPhase);
@@ -74,9 +73,6 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
-
-        
-
     }
 
     void UpdatePhase(GamePhase phase) {
