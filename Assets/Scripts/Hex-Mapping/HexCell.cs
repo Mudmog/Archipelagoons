@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 //Code referenced from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
 
@@ -23,20 +24,27 @@ public class HexCell : MonoBehaviour
     {
         get
         {
-            return color;
-        }
-        set
-        {
-            if (color == value)
-            {
-                return;
-            }
-            color = value;
-            Refresh();
+            return HexMetrics.colors[terrainTypeIndex];
         }
     }
 
-    Color color;
+    public int TerrainTypeIndex
+    {
+        get
+        {
+            return terrainTypeIndex;
+        }
+        set
+        {
+            if (terrainTypeIndex != value)
+            {
+                terrainTypeIndex = value;
+                Refresh();
+            }
+        }
+    }
+
+    int terrainTypeIndex;
 
     public int Elevation
     {
@@ -51,6 +59,7 @@ public class HexCell : MonoBehaviour
                 return;
             }
             elevation = value;
+            RefreshPosition();
             Vector3 position = transform.localPosition;
             position.y = value * HexMetrics.elevationStep;
             position.y +=
@@ -120,6 +129,20 @@ public class HexCell : MonoBehaviour
         }
     }
 
+    void RefreshPosition()
+    {
+        Vector3 position = transform.localPosition;
+        position.y = elevation * HexMetrics.elevationStep;
+        position.y +=
+            (HexMetrics.SampleNoise(position).y * 2f - 1f) *
+            HexMetrics.elevationPerturbStrength;
+        transform.localPosition = position;
+
+        Vector3 uiPosition = uiRect.localPosition;
+        uiPosition.z = -position.y;
+        uiRect.localPosition = uiPosition;
+    }
+
     void RefreshSelfOnly()
     {
         chunk.Refresh();
@@ -155,6 +178,58 @@ public class HexCell : MonoBehaviour
         {
             return transform.localPosition;
         }
+    }
+
+    public int UrbanLevel
+    {
+        get
+        {
+            return urbanLevel;
+        }
+        set
+        {
+            if (urbanLevel != value)
+            {
+                urbanLevel = value;
+                RefreshSelfOnly();
+            }
+        }
+    }
+    public int PlantLevel
+    {
+        get
+        {
+            return plantLevel;
+        }
+        set
+        {
+            if (plantLevel != value)
+            {
+                plantLevel = value;
+                RefreshSelfOnly();
+            }
+        }
+    }
+
+    int urbanLevel, plantLevel;
+
+    public void Save(BinaryWriter writer)
+    {
+        writer.Write((byte)terrainTypeIndex);
+        writer.Write((byte)elevation);
+        writer.Write((byte)waterLevel);
+        writer.Write((byte)urbanLevel);
+        writer.Write((byte)plantLevel);
+    }
+
+    public void Load(BinaryReader reader)
+    {
+        terrainTypeIndex = reader.ReadByte();
+        elevation = reader.ReadByte();
+        RefreshPosition();
+        waterLevel = reader.ReadByte();
+        urbanLevel = reader.ReadByte();
+        plantLevel = reader.ReadByte();
     }
 
 

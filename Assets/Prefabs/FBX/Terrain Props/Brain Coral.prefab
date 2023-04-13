@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 810301208698445970}
   m_Layer: 0
   m_Name: Brain Coral
-  m_TagString: Untagged
+  m_TagString: Underwater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4112798040532264368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 9, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4966996145222205157}
@@ -42,6 +42,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,6 +94,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe72645f8f159fe47be356269eae6d9e, type: 3}
       propertyPath: m_Name

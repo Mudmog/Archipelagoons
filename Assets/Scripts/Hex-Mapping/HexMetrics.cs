@@ -5,7 +5,7 @@ using UnityEngine;
 //Code referenced from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
 public class HexMetrics
 {
-    public const float outerRadius = 10f;
+	public const float outerRadius = 10f;
 	public const float innerRadius = outerRadius * 0.866025404f;
 
 	public const float solidFactor = 0.8f;
@@ -37,6 +37,15 @@ public class HexMetrics
 	public const float waterFactor = 0.6f;
 
 	public const float waterBlendFactor = 1f - waterFactor;
+
+	public const int hashGridSize = 256;
+
+	static HexHash[] hashGrid;
+
+	public const float hashGridScale = 0.25f;
+
+	public static Color[] colors;
+
 
 	public static HexEdgeType GetEdgeType(int elevation1, int elevation2)
 	{
@@ -104,10 +113,10 @@ public class HexMetrics
 		return Color.Lerp(a, b, h);
 	}
 
-	public static Vector4 SampleNoise (Vector3 position)
-    {
+	public static Vector4 SampleNoise(Vector3 position)
+	{
 		return noiseSource.GetPixelBilinear(position.x * noiseScale, position.z * noiseScale);
-    }
+	}
 
 	public static Vector3 Perturb(Vector3 position)
 	{
@@ -131,5 +140,43 @@ public class HexMetrics
 	{
 		return (corners[(int)direction] + corners[(int)direction + 1]) *
 			waterBlendFactor;
+	}
+
+	public static void InitializeHashGrid(int seed)
+	{
+		hashGrid = new HexHash[hashGridSize * hashGridSize];
+		Random.State currentState = Random.state;
+		Random.InitState(seed);
+		for (int i = 0; i < hashGrid.Length; i++)
+		{
+			hashGrid[i] = HexHash.Create();
+		}
+		Random.state = currentState;
+	}
+
+	public static HexHash SampleHashGrid(Vector3 position)
+	{
+		int x = (int)(position.x * hashGridScale) % hashGridSize;
+		if (x < 0)
+		{
+			x += hashGridSize;
+		}
+		int z = (int)(position.z * hashGridScale) % hashGridSize;
+		if (z < 0)
+		{
+			z += hashGridSize;
+		}
+		return hashGrid[x + z * hashGridSize];
+	}
+
+	static float[][] featureThresholds = {
+		new float[] {0.0f, 0.0f, 0.4f},
+		new float[] {0.0f, 0.4f, 0.6f},
+		new float[] {0.4f, 0.6f, 0.8f}
+	};
+
+	public static float[] GetFeatureThresholds(int level)
+	{
+		return featureThresholds[level];
 	}
 }

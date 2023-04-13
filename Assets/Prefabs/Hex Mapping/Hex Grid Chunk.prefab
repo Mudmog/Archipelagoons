@@ -377,7 +377,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39ca5a612f8ddb4dacf4a2dd7d3d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  featurePrefab: {fileID: 810301208698445970, guid: 33ee26f3417525d459552ea980916aa1, type: 3}
+  urbanCollections:
+  - prefabs:
+    - {fileID: 3028478948967819727, guid: 530dadb75898bd14688e03203f1b3893, type: 3}
+    - {fileID: 6238982988281231156, guid: 85a6dc9ef3d8697478881576e218a1be, type: 3}
+    - {fileID: 810301208698445970, guid: 33ee26f3417525d459552ea980916aa1, type: 3}
+  - prefabs:
+    - {fileID: 6238982988281231156, guid: 85a6dc9ef3d8697478881576e218a1be, type: 3}
+    - {fileID: 810301208698445970, guid: 33ee26f3417525d459552ea980916aa1, type: 3}
+    - {fileID: 3028478948967819727, guid: 530dadb75898bd14688e03203f1b3893, type: 3}
+  - prefabs:
+    - {fileID: 810301208698445970, guid: 33ee26f3417525d459552ea980916aa1, type: 3}
+    - {fileID: 3028478948967819727, guid: 530dadb75898bd14688e03203f1b3893, type: 3}
+    - {fileID: 6238982988281231156, guid: 85a6dc9ef3d8697478881576e218a1be, type: 3}
+  plantCollections:
+  - prefabs:
+    - {fileID: 2250885183726692958, guid: 0a4fe85bd1e94064eacbf45c512fc054, type: 3}
+    - {fileID: 6482621836531973891, guid: e22566679072a004393f1defdceb9f1b, type: 3}
+    - {fileID: 6482621836531973891, guid: e22566679072a004393f1defdceb9f1b, type: 3}
+  - prefabs:
+    - {fileID: 6482621836531973891, guid: e22566679072a004393f1defdceb9f1b, type: 3}
+    - {fileID: 2250885183726692958, guid: 0a4fe85bd1e94064eacbf45c512fc054, type: 3}
+    - {fileID: 2250885183726692958, guid: 0a4fe85bd1e94064eacbf45c512fc054, type: 3}
+  - prefabs:
+    - {fileID: 6482621836531973891, guid: e22566679072a004393f1defdceb9f1b, type: 3}
+    - {fileID: 2250885183726692958, guid: 0a4fe85bd1e94064eacbf45c512fc054, type: 3}
+    - {fileID: 2250885183726692958, guid: 0a4fe85bd1e94064eacbf45c512fc054, type: 3}
 --- !u!1 &6861421673950931627
 GameObject:
   m_ObjectHideFlags: 0
