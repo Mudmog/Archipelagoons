@@ -6,14 +6,24 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    private MenuManager mm;
     public static event Action<GamePhase> OnGamePhaseChange;
     private GameState _currentState;
     private GamePhase _currentPhase;
+    private PlayerTurn _currentTurn;
     public HexMapEditor map;
 
     public HexGrid grid;
 
     public CharacterList characterlist;
+
+    public Player[] players;
+    public Player _currentPlayer;
+
+    public enum PlayerTurn {
+        PLAYER1,
+        PLAYER2
+    }
 
     public enum GameState {
         NONE,
@@ -35,9 +45,11 @@ public class GameManager : MonoBehaviour
 
     void Awake() {
         Instance = this;
+        _currentPlayer = players[0];
     }
     void Start()
     {
+        mm = GameObject.Find("GameUI").GetComponent<MenuManager>();
         UpdateState(GameState.LOADING);
         map.Load();
         map.enabled = false;
@@ -45,6 +57,13 @@ public class GameManager : MonoBehaviour
     }
     void Update() {
          UpdatePhase(_currentPhase);
+
+        if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[0]) {
+            ChangeTurn(PlayerTurn.PLAYER2);
+        }
+        else if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[1]) {
+            ChangeTurn(PlayerTurn.PLAYER1);
+        }
     }
     void UpdateState(GameState state) {
 
@@ -126,6 +145,25 @@ public class GameManager : MonoBehaviour
                 break;
         }
         OnGamePhaseChange?.Invoke(phase);
+    }
+    public void ChangeTurn(PlayerTurn newTurn) {
+        _currentTurn = newTurn;
+
+        switch(newTurn) {
+            case PlayerTurn.PLAYER1:
+                _currentPlayer = players[0];
+                mm.HandleTurnChange(players[0]);
+                break;
+
+            case PlayerTurn.PLAYER2:
+                _currentPlayer = players[1];
+                mm.HandleTurnChange(players[1]);
+                break;
+            
+            default:
+                break;
+        }
+
     }
 
     private void HandleStartUp() {
