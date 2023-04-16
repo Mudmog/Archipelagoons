@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     private GameManager gm;
     public TextMeshProUGUI pearlsText, hammersText, ordersText;
     public TextMeshProUGUI currentPlayerText;
+    public Button turnButton;
     private Player _currentPlayer;
     Canvas theCanvas;
     // Start is called before the first frame update
@@ -26,9 +27,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.P)) {
-            HandlePearlsUpdate(10);
-        }
+
     }
 
     public void HandleTurnChange(Player player) {
@@ -50,5 +49,8 @@ public class MenuManager : MonoBehaviour
     void HandleOrdersUpdate(int ordersChange) {
         _currentPlayer.changePearls(ordersChange);
         ordersText.SetText(_currentPlayer.getOrders().ToString());
+    }
+    public void onTurnButtonClick() {
+        gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
     }
 }

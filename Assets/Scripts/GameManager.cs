@@ -56,12 +56,7 @@ public class GameManager : MonoBehaviour
         UpdatePhase(GamePhase.STARTUP);
     }
     void Update() {
-        if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[0]) {
-            ChangeTurn(PlayerTurn.PLAYER2);
-        }
-        else if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[1]) {
-            ChangeTurn(PlayerTurn.PLAYER1);
-        }
+        UpdatePhase(_currentPhase);
     }
     void UpdateState(GameState state) {
 
@@ -151,6 +146,7 @@ public class GameManager : MonoBehaviour
             case PlayerTurn.PLAYER1:
                 _currentPlayer = players[0];
                 mm.HandleTurnChange(players[0]);
+                HandlePhaseChange();
                 break;
 
             case PlayerTurn.PLAYER2:
@@ -165,43 +161,52 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandleStartUp() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.UPKEEP);
-            Debug.Log("Switched to Upkeep");
-        }
     }
     private void HandleUpkeep() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.BUILD);
-            Debug.Log("Switched to Build");
-        }
     }
     private void HandleBuild() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.RECRUIT);
-            Debug.Log("Switched to Recruit");
-        }
     }
     private void HandleRecruit() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.ARMY);
-            Debug.Log("Switched to Army");
-        }
     }
     private void HandleArmy() {
-        if (Input.GetKey(KeyCode.Q)) {
-            UpdatePhase(GamePhase.ROUNDEND);
-            Debug.Log("Switched to EndRound");
-        }
         if (Input.GetMouseButton(0))
 		{
 			HandleInput(grid, characterlist.characters[0]);
 		}
     }
     private void HandleRoundEnd() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            Debug.Log("Game Ended");
+    }
+    public void HandlePhaseChange() {
+        switch(_currentPhase) {
+
+            case GamePhase.STARTUP:
+                UpdatePhase(GamePhase.UPKEEP);
+                break;
+
+            case GamePhase.UPKEEP:
+                 UpdatePhase(GamePhase.BUILD);
+                break;
+            
+            case GamePhase.BUILD:
+                 UpdatePhase(GamePhase.RECRUIT);
+                break;
+            
+            case GamePhase.RECRUIT:
+                 UpdatePhase(GamePhase.ARMY);
+                break;
+
+            case GamePhase.ARMY:
+                 UpdatePhase(GamePhase.ROUNDEND);
+                break;
+
+            case GamePhase.ROUNDEND:
+                 UpdatePhase(GamePhase.UPKEEP);
+                break;
+            
+            default:
+                break;
         }
+        Debug.Log("Phase Updated From: " + _currentPhase.ToString());
     }
     void StartLoading() {
         
@@ -216,4 +221,15 @@ public class GameManager : MonoBehaviour
 			character.updatePosition(hexGrid.GetCell(hit.point));
 		}
 	}
+    
+    public PlayerTurn getNextTurn(Player currentPlayer) {
+        if (currentPlayer == players[0]) {
+            return PlayerTurn.PLAYER2; 
+        }
+        else if (currentPlayer == players[1]) {
+            return PlayerTurn.PLAYER1;
+        }
+        Debug.Log("Error getting next player");
+        return PlayerTurn.PLAYER1;
+    }
 }
