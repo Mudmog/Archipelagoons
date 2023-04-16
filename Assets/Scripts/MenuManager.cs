@@ -7,7 +7,7 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     private GameManager gm;
-    public TextMeshProUGUI pearlsText;
+    public TextMeshProUGUI pearlsText, hammersText, ordersText;
     public TextMeshProUGUI currentPlayerText;
     private Player _currentPlayer;
     Canvas theCanvas;
@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
          _currentPlayer = gm._currentPlayer;
         pearlsText.SetText(_currentPlayer.getPearls().ToString());
+        hammersText.SetText(_currentPlayer.getHammers().ToString());
+        ordersText.SetText(_currentPlayer.getOrders().ToString());
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
     }
 
@@ -33,10 +35,20 @@ public class MenuManager : MonoBehaviour
         _currentPlayer = player;
         pearlsText.SetText(_currentPlayer.getPearls().ToString());
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
+        hammersText.SetText(_currentPlayer.getHammers().ToString());
+        ordersText.SetText(_currentPlayer.getOrders().ToString());
     }
 
     void HandlePearlsUpdate(int pearlChange) {
         _currentPlayer.changePearls(pearlChange);
         pearlsText.SetText(_currentPlayer.getPearls().ToString());
+    }
+    void HandleHammersUpdate(int hammersChange) {
+        _currentPlayer.changePearls(hammersChange);
+        hammersText.SetText(_currentPlayer.getHammers().ToString());
+    }
+    void HandleOrdersUpdate(int ordersChange) {
+        _currentPlayer.changePearls(ordersChange);
+        ordersText.SetText(_currentPlayer.getOrders().ToString());
     }
 }

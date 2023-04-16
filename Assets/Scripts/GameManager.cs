@@ -56,8 +56,6 @@ public class GameManager : MonoBehaviour
         UpdatePhase(GamePhase.STARTUP);
     }
     void Update() {
-         UpdatePhase(_currentPhase);
-
         if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[0]) {
             ChangeTurn(PlayerTurn.PLAYER2);
         }
