@@ -6,16 +6,19 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
+    private GameManager gm;
     public TextMeshProUGUI pearlsText;
-    private Player player;
+    public TextMeshProUGUI currentPlayerText;
+    private Player _currentPlayer;
     Canvas theCanvas;
     // Start is called before the first frame update
+
     void Start()
     {
-        player = GameObject.Find("Player(Clone)").GetComponent<Player>();
-        theCanvas.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        pearlsText.SetText(player.getPearls().ToString());
-
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+         _currentPlayer = gm._currentPlayer;
+        pearlsText.SetText(_currentPlayer.getPearls().ToString());
+        currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
     }
 
     // Update is called once per frame
@@ -26,8 +29,14 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void HandleTurnChange(Player player) {
+        _currentPlayer = player;
+        pearlsText.SetText(_currentPlayer.getPearls().ToString());
+        currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
+    }
+
     void HandlePearlsUpdate(int pearlChange) {
-        player.changePearls(pearlChange);
-        pearlsText.SetText(player.getPearls().ToString());
+        _currentPlayer.changePearls(pearlChange);
+        pearlsText.SetText(_currentPlayer.getPearls().ToString());
     }
 }

@@ -1,0 +1,364 @@
+ {
+    "testing": [
+        {
+            "name": "Guppy Goon",
+            "goon": "Fish",
+            "rarity": "Starter",
+            "power": 2,
+            "defense": 2,
+            "movement": 3
+        },
+        {
+            "name": "Stabby Crab",
+            "goon": "Crustacean",
+            "rarity": "Starter",
+            "power": 3,
+            "defense": 2,
+            "movement": 2
+        },
+        {
+            "name": "Hired Mussel",
+            "goon": "Mollusk",
+            "rarity": "Starter",
+            "power": 2,
+            "defense": 3,
+            "movement": 2
+        },
+        {
+            "name": "Nautical Newt",
+            "goon": "Amphibian",
+            "rarity": "Starter",
+            "power": 3,
+            "defense": 2,
+            "movement": 3
+        },
+        {
+            "name": "Minnow Mercs",
+            "goon": "Fish",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "+1 Power for each adjacent friendly Fish."
+        },
+        {
+            "name": "Sardine Scout",
+            "goon": "Fish",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 1,
+            "movement": 4,
+            "abilityText": "Can pass through spaces occupied by enemies."
+        },
+        {
+            "name": "Puny Puffer",
+            "goon": "Fish",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "+1 Power while Damaged."
+        },
+        {
+            "name": "Blengineer",
+            "goon": "Fish",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 2,
+            "abilityText": "+1 Hammer while adjacent to an island you control."
+        },
+        {
+            "name": "Goldfish Gladiator",
+            "goon": "Fish",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 2,
+            "abilityText": "+2 Pearls after defeating an enemy."
+        },
+        {
+            "name": "Sword Shrimp",
+            "goon": "Crustacean",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 2,
+            "abilityText": "Becomes a Two-Sword Shrimp after defeating an enemy."
+        },
+        {
+            "name": "Krill Crew",
+            "goon": "Crustacean",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "+1 Order while adjacent to an island you control."
+        },
+        {
+            "name": "Reclusive Hermit",
+            "goon": "Crustacean",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "+2 Power when no friendly units are adjacent to it."
+        },
+        {
+            "name": "Fiddler Bard",
+            "goon": "Crustacean",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 2,
+            "abilityText": "+2 Pearls at Upkeep while adjacent to an island you control."
+        },
+        {
+            "name": "Curious Craw",
+            "goon": "Crustacean",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 2,
+            "abilityText": "+1 Vision."
+        },
+        {
+            "name": "Pearl Peddler",
+            "goon": "Mollusk",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "+2 Pearls at Upkeep."
+        },
+        {
+            "name": "Ink Escapist",
+            "goon": "Mollusk",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "Gains a free Move order after taking damage in battle."
+        },
+        {
+            "name": "Signal Squid",
+            "goon": "Mollusk",
+            "rarity": "Common",
+            "power": 1,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "Grants adjacent friendly units +1 Power."
+        },
+        {
+            "name": "Razor Clam Raider",
+            "goon": "Mollusk",
+            "rarity": "Common",
+            "power": 2,
+            "defense": 2,
+            "movement": 2,
+            "abilityText": "Steals an extra 2 Pearls when Robbing an enemy."
+        },
+        {
+            "goon": "Mollusk",
+            "rarity": "Common"
+        },
+        {
+            "name": "Moon Wrasse",
+            "goon": "Fish",
+            "rarity": "Uncommon",
+            "power": 3,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "-1 Power and Movement while you are at the top of the Sundial."
+        },
+        {
+            "name": "Triggerfish Tracker",
+            "goon": "Fish",
+            "rarity": "Uncommon",
+            "power": 2,
+            "defense": 3,
+            "movement": 3,
+            "abilityText": "Can see Hidden units. +1 Vision."
+        },
+        {
+            "name": "Cleaner Crew",
+            "goon": "Fish",
+            "rarity": "Uncommon",
+            "power": 1,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "Friendly Fish heal 1 Damage if they start Army Phase adjacent to Cleaner Crew."
+        },
+        {
+            "name": "Construction Grouper",
+            "goon": "Fish",
+            "rarity": "Uncommon",
+            "power": 2,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "+1 Hammer."
+        },
+        {
+            "name": "Squizard",
+            "goon": "Mollusk",
+            "rarity": "Uncommon",
+            "power": 2,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "Can spend 1 Order to teleport to a tile adjacent to an Island you control."
+        },
+        {
+            "name": "Cuttle-Creep",
+            "goon": "Mollusk",
+            "rarity": "Uncommon",
+            "power": 1,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "Hidden."
+        },
+        {
+            "name": "Inkscreener",
+            "goon": "Mollusk",
+            "rarity": "Uncommon",
+            "power": 2,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "Friendly units adjacent to this are Hidden."
+        },
+        {
+            "name": "Urchin Underling",
+            "goon": "Echinoderm",
+            "rarity": "Uncommon",
+            "power": 2,
+            "defense": 4,
+            "movement": 2,
+            "abilityText": "Deals 1 Damage to any unit that starts battle with it."
+        },
+        {
+            "name": "Launch Frog",
+            "goon": "Amphibian",
+            "rarity": "Uncommon",
+            "power": 2,
+            "defense": 1,
+            "movement": 2,
+            "abilityText": "+2 Movement if Launch Frog starts Army Phase adjancet to an Island."
+        },
+        {
+            "name": "Tadpole",
+            "goon": "Amphibian",
+            "rarity": "Uncommon",
+            "power": 1,
+            "defense": 1,
+            "movement": 1,
+            "abilityText": "At the end of the next Build Phase, transforms into a random Rare or Unique Amphibian."
+        },
+        {
+            "name": "Sand Dollar Broker",
+            "goon": "Echinoderm",
+            "rarity": "Rare",
+            "power": 1,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "+1 Pearl at Upkeep for every other Echinoderm in your Army."
+        },
+        {
+            "name": "Seargant Starfish",
+            "goon": "Echinoderm",
+            "rarity": "Rare",
+            "power": 3,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "Seargant Starfish ignores the effects of enemy abilities in battle."
+        },
+        {
+            "name": "Longbow Archerfish",
+            "goon": "Fish",
+            "rarity": "Rare",
+            "power": 2,
+            "defense": 2,
+            "movement": 3,
+            "abilityText": "Can battle enemies an extra tile away."
+        },
+        {
+            "name": "Musketeel",
+            "goon": "Fish",
+            "rarity": "Rare",
+            "power": 3,
+            "defense": 3,
+            "movement": 3,
+            "abilityText": "If you have 2 Musketeel, add the Third Musketeel to your hand."
+        },
+        {
+            "name": "Swordfish Samurai",
+            "goon": "Fish",
+            "rarity": "Rare",
+            "power": 4,
+            "defense": 3,
+            "movement": 4,
+            "abilityText": "If Swordfish Samurai loses a battle and survives, it destroys itself."
+        },
+        {
+            "name": "Auctioneel",
+            "goon": "Fish",
+            "rarity": "Unique",
+            "power": 3,
+            "defense": 3,
+            "movement": 3,
+            "abilityText": "Whenever a tie occurs at the Auction, you decide who buys the card."
+        },
+        {
+            "name": "Great White",
+            "goon": "Fish",
+            "rarity": "Unique",
+            "power": 5,
+            "defense": 4,
+            "movement": 4,
+            "abilityText": "The first enemy to defeats this adds the Great White Tooth to their hand."
+        },
+        {
+            "name": "Stonefish",
+            "goon": "Fish",
+            "rarity": "Unique",
+            "power": 1,
+            "defense": 3,
+            "movement": 2,
+            "abilityText": "Whenever a unit takes damage from Stonefish, it is destroyed."
+        },
+        {
+            "name": "Spider-Crab Supreme",
+            "goon": "Crustacean",
+            "rarity": "Unique",
+            "power": 3,
+            "defense": 4,
+            "movement": 2,
+            "abilityText": "+1 Power to adjacent Crustaceans."
+        },
+        {
+            "name": "Mastermind Muusoctopus",
+            "goon": "Mollusk",
+            "rarity": "Unique",
+            "power": 3,
+            "defense": 3,
+            "movement": 3,
+            "abilityText": "If you have 4 or more Mollusks, +2 Orders and +2 Hammers."
+        },
+        {
+            "name": "Ancient Axolotl",
+            "goon": "Amphibian",
+            "rarity": "Unique",
+            "power": 3,
+            "defense": 3,
+            "movement": 3,
+            "abilityText": "Friendly Amphibians heal 1 Damage during Upkeep."
+        },
+        {
+            "name": "Reef Turtle",
+            "goon": "Reptile",
+            "rarity": "Unique",
+            "power": 1,
+            "defense": 4,
+            "movement": 3,
+            "abilityText": "If you are controlling The Reef during Upkeep, +2 VP."
+        }
+    ]
+ }
