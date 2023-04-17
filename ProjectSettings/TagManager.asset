@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Underwater
   - Land
+  - Unit
   layers:
   - Default
   - TransparentFX

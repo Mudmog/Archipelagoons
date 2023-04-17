@@ -1,37 +1,39 @@
-[
-    {
-        "treasure": "Great White Tooth",
-        "ability": "All of your units have +1 Power.",
-        "dredgeable": false
-    },
-    {
-        "treasure": "Golden Pearl",
-        "ability": "Discard this instead of bidding to automatically win an Auction.",
-        "dredgeable": true
-    },
-    {
-        "treasure": "Spyglass",
-        "ability": "You can see the exact amount of Pearls each player has.",
-        "dredgeable": true
-    },
-    {
-        "treasure": "Blastoid Fossil",
-        "ability": "Your Echinoderms have +1 Power, Defense, and Movement.",
-        "dredgeable": true
-    },
-    {
-        "treasure": "Barnacle Barrier",
-        "ability": "All of your units have +1 Defense (maximum 5).",
-        "dredgeable": true
-    },
-    {
-        "treasure": "I. Sea B. M.",
-        "ability": "Discard this at the beginning of a battle to add +5 Power to your attack.",
-        "dredgeable": true
-    },
-    {
-        "treasure": "Lily Pad",
-        "ability": "You can now select Amphibian Goons during the Recruit Phase.",
-        "dredgeable": true
-    }
-]
+{
+    "testing":[
+        {
+            "treasure": "Great White Tooth",
+            "ability": "All of your units have +1 Power.",
+            "dredgeable": false
+        },
+        {
+            "treasure": "Golden Pearl",
+            "ability": "Discard this instead of bidding to automatically win an Auction.",
+            "dredgeable": true
+        },
+        {
+            "treasure": "Spyglass",
+            "ability": "You can see the exact amount of Pearls each player has.",
+            "dredgeable": true
+        },
+        {
+            "treasure": "Blastoid Fossil",
+            "ability": "Your Echinoderms have +1 Power, Defense, and Movement.",
+            "dredgeable": true
+        },
+        {
+            "treasure": "Barnacle Barrier",
+            "ability": "All of your units have +1 Defense (maximum 5).",
+            "dredgeable": true
+        },
+        {
+            "treasure": "I. Sea B. M.",
+            "ability": "Discard this at the beginning of a battle to add +5 Power to your attack.",
+            "dredgeable": true
+        },
+        {
+            "treasure": "Lily Pad",
+            "ability": "You can now select Amphibian Goons during the Recruit Phase.",
+            "dredgeable": true
+        }
+    ]
+}

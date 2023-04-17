@@ -14,11 +14,10 @@ public class GameManager : MonoBehaviour
     public HexMapEditor map;
 
     public HexGrid grid;
-
-    public CharacterList characterlist;
-
     public Player[] players;
     public Player _currentPlayer;
+    [SerializeField]
+    Unit selectedUnit;
 
     public enum PlayerTurn {
         PLAYER1,
@@ -49,21 +48,16 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Debug.Log(players.Length);
         mm = GameObject.Find("GameUI").GetComponent<MenuManager>();
         UpdateState(GameState.LOADING);
         map.Load();
         map.enabled = false;
         UpdatePhase(GamePhase.STARTUP);
+        placeBeginnerUnit(grid);
     }
     void Update() {
-         UpdatePhase(_currentPhase);
-
-        if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[0]) {
-            ChangeTurn(PlayerTurn.PLAYER2);
-        }
-        else if (Input.GetKeyUp(KeyCode.L) && _currentPlayer == players[1]) {
-            ChangeTurn(PlayerTurn.PLAYER1);
-        }
+        UpdatePhase(_currentPhase);
     }
     void UpdateState(GameState state) {
 
@@ -153,6 +147,7 @@ public class GameManager : MonoBehaviour
             case PlayerTurn.PLAYER1:
                 _currentPlayer = players[0];
                 mm.HandleTurnChange(players[0]);
+                HandlePhaseChange();
                 break;
 
             case PlayerTurn.PLAYER2:
@@ -167,55 +162,103 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandleStartUp() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.UPKEEP);
-            Debug.Log("Switched to Upkeep");
-        }
     }
     private void HandleUpkeep() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.BUILD);
-            Debug.Log("Switched to Build");
-        }
     }
     private void HandleBuild() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.RECRUIT);
-            Debug.Log("Switched to Recruit");
-        }
     }
     private void HandleRecruit() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            UpdatePhase(GamePhase.ARMY);
-            Debug.Log("Switched to Army");
-        }
     }
     private void HandleArmy() {
-        if (Input.GetKey(KeyCode.Q)) {
-            UpdatePhase(GamePhase.ROUNDEND);
-            Debug.Log("Switched to EndRound");
-        }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
 		{
-			HandleInput(grid, characterlist.characters[0]);
+            if (selectedUnit != null) {
+                HandleUnitMovement(grid, selectedUnit);
+            }
+            else {
+                HandleUnitSelection();
+            }
+			
+
 		}
     }
     private void HandleRoundEnd() {
-        if (Input.GetKeyUp(KeyCode.Q)) {
-            Debug.Log("Game Ended");
+    }
+    public void HandlePhaseChange() {
+        switch(_currentPhase) {
+
+            case GamePhase.STARTUP:
+                UpdatePhase(GamePhase.UPKEEP);
+                break;
+
+            case GamePhase.UPKEEP:
+                 UpdatePhase(GamePhase.BUILD);
+                break;
+            
+            case GamePhase.BUILD:
+                 UpdatePhase(GamePhase.RECRUIT);
+                break;
+            
+            case GamePhase.RECRUIT:
+                 UpdatePhase(GamePhase.ARMY);
+                break;
+
+            case GamePhase.ARMY:
+                 UpdatePhase(GamePhase.ROUNDEND);
+                break;
+
+            case GamePhase.ROUNDEND:
+                 UpdatePhase(GamePhase.UPKEEP);
+                break;
+            
+            default:
+                break;
         }
+        Debug.Log("Phase Updated From: " + _currentPhase.ToString());
     }
     void StartLoading() {
         
     }
 
-    public void HandleInput(HexGrid hexGrid, Character character)
+    public void placeBeginnerUnit(HexGrid hexgrid) {
+        players[0].getUnitList().placeFirstUnit(hexgrid.GetCell(new Vector3(69, 9, 87)), players[0]);
+        players[1].getUnitList().placeFirstUnit(hexgrid.GetCell(new Vector3(277, 8, 89)), players[1]);
+    }
+
+    public void HandleUnitMovement(HexGrid hexGrid, Unit unit)
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater)
 		{
-			character.updatePosition(hexGrid.GetCell(hit.point));
+			unit.updatePosition(hexGrid.GetCell(hit.point));
+            selectedUnit = null;
 		}
 	}
+
+    public void HandleUnitSelection() {
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		if (Physics.Raycast(inputRay, out hit) && hit.transform.gameObject.tag.Equals("Unit"))
+		{
+            if (hit.transform.gameObject.GetComponentInParent<Player>() != _currentPlayer) {
+                Debug.Log("Not Your Unit");
+            }
+            else {
+                selectedUnit = hit.transform.gameObject.GetComponentInParent<Unit>();
+                Debug.Log("Selected Unit: " + selectedUnit.ToString());
+            }
+		}
+    }
+    
+    public PlayerTurn getNextTurn(Player currentPlayer) {
+        if (currentPlayer == players[0]) {
+            return PlayerTurn.PLAYER2; 
+        }
+        else if (currentPlayer == players[1]) {
+            return PlayerTurn.PLAYER1;
+        }
+        Debug.Log("Error getting next player");
+        return PlayerTurn.PLAYER1;
+    }
 }
