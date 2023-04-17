@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     HexCell currentCell; //The current cell that the ship is over
+    Card card; //The card that represents the Unit
 
     public void updatePosition(HexCell cell) {
         currentCell = cell;

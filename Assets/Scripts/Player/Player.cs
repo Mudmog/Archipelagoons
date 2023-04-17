@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private int pearl_range;
     private int hammers;
     private int orders;
-    private Character[] army;
+    public UnitList army;
     private int victory_points; 
     private int islands_controlled;
     private int total_builds;
@@ -36,5 +36,18 @@ public class Player : MonoBehaviour
     }
     public int getOrders() {
         return orders;
+    }
+
+    public Unit getArmyUnit(Unit unit) {
+        for (int x = 0; x < army.getUnitList().Length; x++) {
+            if(unit == army.getUnitList()[x]) {
+                return army.getUnitList()[x];
+            }
+        }
+        Debug.Log("Selected Unit not Found");
+        return unit;
+    }
+    public UnitList getUnitList() {
+        return army;
     }
 }

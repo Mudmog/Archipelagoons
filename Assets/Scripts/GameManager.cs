@@ -14,11 +14,10 @@ public class GameManager : MonoBehaviour
     public HexMapEditor map;
 
     public HexGrid grid;
-
-    public CharacterList characterlist;
-
     public Player[] players;
     public Player _currentPlayer;
+    [SerializeField]
+    Unit selectedUnit;
 
     public enum PlayerTurn {
         PLAYER1,
@@ -49,11 +48,13 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Debug.Log(players.Length);
         mm = GameObject.Find("GameUI").GetComponent<MenuManager>();
         UpdateState(GameState.LOADING);
         map.Load();
         map.enabled = false;
         UpdatePhase(GamePhase.STARTUP);
+        placeBeginnerUnit(grid);
     }
     void Update() {
         UpdatePhase(_currentPhase);
@@ -169,9 +170,16 @@ public class GameManager : MonoBehaviour
     private void HandleRecruit() {
     }
     private void HandleArmy() {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
 		{
-			HandleInput(grid, characterlist.characters[0]);
+            if (selectedUnit != null) {
+                HandleUnitMovement(grid, selectedUnit);
+            }
+            else {
+                HandleUnitSelection();
+            }
+			
+
 		}
     }
     private void HandleRoundEnd() {
@@ -212,15 +220,36 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void HandleInput(HexGrid hexGrid, Character character)
+    public void placeBeginnerUnit(HexGrid hexgrid) {
+        players[0].getUnitList().placeFirstUnit(hexgrid.GetCell(new Vector3(69, 9, 87)), players[0]);
+        players[1].getUnitList().placeFirstUnit(hexgrid.GetCell(new Vector3(277, 8, 89)), players[1]);
+    }
+
+    public void HandleUnitMovement(HexGrid hexGrid, Unit unit)
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater)
 		{
-			character.updatePosition(hexGrid.GetCell(hit.point));
+			unit.updatePosition(hexGrid.GetCell(hit.point));
+            selectedUnit = null;
 		}
 	}
+
+    public void HandleUnitSelection() {
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		if (Physics.Raycast(inputRay, out hit) && hit.transform.gameObject.tag.Equals("Unit"))
+		{
+            if (hit.transform.gameObject.GetComponentInParent<Player>() != _currentPlayer) {
+                Debug.Log("Not Your Unit");
+            }
+            else {
+                selectedUnit = hit.transform.gameObject.GetComponentInParent<Unit>();
+                Debug.Log("Selected Unit: " + selectedUnit.ToString());
+            }
+		}
+    }
     
     public PlayerTurn getNextTurn(Player currentPlayer) {
         if (currentPlayer == players[0]) {
