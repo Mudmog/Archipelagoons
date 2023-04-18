@@ -12,15 +12,18 @@ public class MenuManager : MonoBehaviour
     public Button turnButton;
     private Player _currentPlayer;
     Canvas theCanvas;
+    public TMP_Text HUDActivePlayer1;
+    public TMP_Text HUDActivePlayer2;
+    public GameObject P1UI;
+    public GameObject P2UI;
+    public GameObject RecruitUI;
+    public GameObject AuctionUI;
     // Start is called before the first frame update
 
     void Start()
     {
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
-         _currentPlayer = gm._currentPlayer;
-        pearlsText.SetText(_currentPlayer.getPearls().ToString());
-        hammersText.SetText(_currentPlayer.getHammers().ToString());
-        ordersText.SetText(_currentPlayer.getOrders().ToString());
+        _currentPlayer = gm._currentPlayer;
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
     }
 
@@ -36,6 +39,8 @@ public class MenuManager : MonoBehaviour
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
         hammersText.SetText(_currentPlayer.getHammers().ToString());
         ordersText.SetText(_currentPlayer.getOrders().ToString());
+        //P2UI.SetActive(false);
+        //P1UI.SetActive(true);
     }
 
     void HandlePearlsUpdate(int pearlChange) {
