@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,14 @@ public class GameManager : MonoBehaviour
     public Player _currentPlayer;
     [SerializeField]
     Unit selectedUnit;
+
+    //chris does hud stuff
+    public TMP_Text HUDActivePlayer1;
+    public TMP_Text HUDActivePlayer2;
+    public GameObject P1UI;
+    public GameObject P2UI;
+    public GameObject RecruitUI;
+    public GameObject AuctionUI;
 
     public enum PlayerTurn {
         PLAYER1,
@@ -145,12 +154,26 @@ public class GameManager : MonoBehaviour
 
         switch(newTurn) {
             case PlayerTurn.PLAYER1:
+                Debug.Log("Player 1 turn");
+                HUDActivePlayer1.text = "Player 1";
+                P2UI.SetActive(false);
+                P1UI.SetActive(true);
                 _currentPlayer = players[0];
                 mm.HandleTurnChange(players[0]);
                 HandlePhaseChange();
                 break;
 
+            //note to self, remember to remove comments below
+            //they switch between player 1 UI view and player 2 ui view
+            //also update player2 ui to be an identical copy of player 1 ui but
+            //with green felt material replaced with red felt and vice versa
             case PlayerTurn.PLAYER2:
+                Debug.Log("Player 2 turn");
+                //also remove the activeplayer1 line below
+                HUDActivePlayer1.text = "Player 2";
+                //HUDActivePlayer2.text = "Player 2";
+                //P1UI.SetActive(false);
+                //P2UI.SetActive(true);
                 _currentPlayer = players[1];
                 mm.HandleTurnChange(players[1]);
                 break;
@@ -168,8 +191,11 @@ public class GameManager : MonoBehaviour
     private void HandleBuild() {
     }
     private void HandleRecruit() {
+        RecruitUI.SetActive(true);
+
     }
     private void HandleArmy() {
+        RecruitUI.SetActive(false);
         if (Input.GetMouseButtonUp(0))
 		{
             if (selectedUnit != null) {
