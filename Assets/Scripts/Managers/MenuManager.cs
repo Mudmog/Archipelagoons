@@ -7,6 +7,7 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     private GameManager gm;
+    public HandInteraction hi;
     public TextMeshProUGUI pearlsText, hammersText, ordersText;
     public TextMeshProUGUI currentPlayerText;
     public Button turnButton;
@@ -18,7 +19,8 @@ public class MenuManager : MonoBehaviour
     public GameObject P2UI;
     public GameObject RecruitUI;
     public GameObject AuctionUI;
-    // Start is called before the first frame update
+    public Canvas P1Hand;
+
 
     void Start()
     {
@@ -39,8 +41,29 @@ public class MenuManager : MonoBehaviour
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
         hammersText.SetText(_currentPlayer.getHammers().ToString());
         ordersText.SetText(_currentPlayer.getOrders().ToString());
+        Debug.Log("current player is "+_currentPlayer.name);
         //P2UI.SetActive(false);
         //P1UI.SetActive(true);
+    }
+
+    public void HandleRecruitMenuChange()
+    {
+        RecruitUI.SetActive(true);
+
+    }
+
+    public void HandleAuctionMenuChange()
+    {
+        RecruitUI.SetActive(false);
+        P1UI.SetActive(false);
+        P2UI.SetActive(false);
+        AuctionUI.SetActive(true);
+    }
+
+    public void HandleArmyMenuChange()
+    {
+        AuctionUI.SetActive(false);
+        P1UI.SetActive(true);
     }
 
     void HandlePearlsUpdate(int pearlChange) {
@@ -56,6 +79,23 @@ public class MenuManager : MonoBehaviour
         ordersText.SetText(_currentPlayer.getOrders().ToString());
     }
     public void onTurnButtonClick() {
+        gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
+    }
+
+    public void onFishButtonClick()
+    {
+        hi.HandleAddCard(_currentPlayer,"Guppy Goon");
+        gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
+    }
+
+    public void onCrustaceanClick()
+    {
+        hi.HandleAddCard(_currentPlayer, "Stabby Crab");
+        gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
+    }
+    public void onMolluskButtonClick()
+    {
+        hi.HandleAddCard(_currentPlayer, "Hired Mussel");
         gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
     }
 }
