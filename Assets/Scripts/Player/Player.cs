@@ -51,4 +51,18 @@ public class Player : MonoBehaviour
     public UnitList getUnitList() {
         return army;
     }
+
+    public void assignUnits(CardList listOfCards) {
+        string tempName = "";
+        for (int x = 0; x < army.units.Length; x++) {
+            for (int y = 0; y < listOfCards.UnitCards.cards.Length; y++) {
+                tempName = army.units[x].name.Replace("(Clone)", "");
+                if (tempName.Equals(listOfCards.UnitCards.cards[y].name)) {
+                    Debug.Log("Unit is assigned a card");
+                    army.units[x].setCard(listOfCards.UnitCards.cards[y]);
+                }
+            }
+            Debug.Log("Failed to assign Unit a Card");
+        }
+    }
 }

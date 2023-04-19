@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private MenuManager mm;
+    public MenuManager mm;
     public static event Action<GamePhase> OnGamePhaseChange;
     private GameState _currentState;
     private GamePhase _currentPhase;
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
     public Player _currentPlayer;
     [SerializeField]
     Unit selectedUnit;
+    [SerializeField]
+    public CardList gamesCardList;
+
 
     public enum PlayerTurn {
         PLAYER1,
@@ -38,6 +42,7 @@ public class GameManager : MonoBehaviour
         UPKEEP, 
         BUILD, 
         RECRUIT,
+        AUCTION,
         ARMY,
         ROUNDEND
     }
@@ -48,13 +53,14 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(players.Length);
-        mm = GameObject.Find("GameUI").GetComponent<MenuManager>();
         UpdateState(GameState.LOADING);
         map.Load();
         map.enabled = false;
         UpdatePhase(GamePhase.STARTUP);
         placeBeginnerUnit(grid);
+        foreach (Player player in players) {
+            player.assignUnits(gamesCardList);
+        }
     }
     void Update() {
         UpdatePhase(_currentPhase);
@@ -119,6 +125,10 @@ public class GameManager : MonoBehaviour
                 //cool
                 break;
 
+            case GamePhase.AUCTION:
+                HandleAuction();
+                break;
+
             case GamePhase.ARMY:
                 HandleArmy();
                 //turn based round
@@ -150,6 +160,7 @@ public class GameManager : MonoBehaviour
                 HandlePhaseChange();
                 break;
 
+
             case PlayerTurn.PLAYER2:
                 _currentPlayer = players[1];
                 mm.HandleTurnChange(players[1]);
@@ -168,8 +179,16 @@ public class GameManager : MonoBehaviour
     private void HandleBuild() {
     }
     private void HandleRecruit() {
+        mm.HandleRecruitMenuChange();
+
+    }
+
+    private void HandleAuction()
+    {
+        mm.HandleAuctionMenuChange();
     }
     private void HandleArmy() {
+        mm.HandleArmyMenuChange();
         if (Input.GetMouseButtonUp(0))
 		{
             if (selectedUnit != null) {
@@ -200,6 +219,10 @@ public class GameManager : MonoBehaviour
                 break;
             
             case GamePhase.RECRUIT:
+                 UpdatePhase(GamePhase.AUCTION);
+                break;
+
+            case GamePhase.AUCTION:
                  UpdatePhase(GamePhase.ARMY);
                 break;
 
@@ -261,4 +284,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Error getting next player");
         return PlayerTurn.PLAYER1;
     }
+
+
+
+
 }
