@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Player _currentPlayer;
     [SerializeField]
     Unit selectedUnit;
+    [SerializeField]
+    public CardList gamesCardList;
 
 
     public enum PlayerTurn {
@@ -51,12 +53,14 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(players.Length);
         UpdateState(GameState.LOADING);
         map.Load();
         map.enabled = false;
         UpdatePhase(GamePhase.STARTUP);
         placeBeginnerUnit(grid);
+        foreach (Player player in players) {
+            player.assignUnits(gamesCardList);
+        }
     }
     void Update() {
         UpdatePhase(_currentPhase);
