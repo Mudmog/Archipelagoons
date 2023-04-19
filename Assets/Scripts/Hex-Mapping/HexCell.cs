@@ -148,6 +148,10 @@ public class HexCell : MonoBehaviour
         chunk.Refresh();
     }
 
+    public HexCell getNeighbor (int direction)
+    {
+        return neighbors[direction];
+    }
     public HexCell GetNeighbor (HexDirection direction)
     {
         return neighbors[(int)direction];
@@ -157,6 +161,9 @@ public class HexCell : MonoBehaviour
     {
         neighbors[(int)direction] = cell;
         cell.neighbors[(int)direction.Opposite()] = this;
+    }
+    public int gettotalNeighbors() {
+        return neighbors.Length;
     }
 
     public HexEdgeType GetEdgeType(HexDirection direction)
