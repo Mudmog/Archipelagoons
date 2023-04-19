@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &781089629
 PrefabInstance:
@@ -200,7 +200,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1f15814d92128de40984e648e448f87e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f15814d92128de40984e648e448f87e, type: 3}
       propertyPath: m_LocalScale.x
@@ -472,7 +472,7 @@ MonoBehaviour:
     damage: 7
     manaCost: 2
     ownerID: 0
-    illustration: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    illustration: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   player1Hand: {fileID: 1526052254}
   player2Hand: {fileID: 0}
   cardControllerPrefab: {fileID: -8894150483094092922, guid: 1ab9ba2d66edd0943a3049d941897e31, type: 3}
@@ -490,9 +490,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - health: 10
+    mana: 0
     ID: 0
     myTurn: 0
   - health: 10
+    mana: 0
     ID: 1
     myTurn: 0
 --- !u!114 &1240687802
@@ -941,7 +943,7 @@ RectTransform:
   - {fileID: 798642187}
   - {fileID: 1177974406}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

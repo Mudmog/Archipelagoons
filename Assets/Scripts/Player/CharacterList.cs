@@ -5,9 +5,8 @@ using Unity.Netcode;
 
 public class CharacterList : MonoBehaviour
 {
-    public Character baseCharacter;
-
-    public Character[] characters;
+    public Unit baseCharacter;
+    public Unit[] characters;
 
     // Start is called before the first frame update
     void Start() {
