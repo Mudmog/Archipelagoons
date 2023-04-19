@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5415374424932930775}
   - component: {fileID: -5740641857292444511}
   m_Layer: 0
-  m_Name: GuppyGoon
+  m_Name: Guppy Goon
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

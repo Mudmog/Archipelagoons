@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3350149868216715552}
   - component: {fileID: 8684206837117774868}
   m_Layer: 0
-  m_Name: HiredMussel
+  m_Name: Hired Mussel
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
