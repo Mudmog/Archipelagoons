@@ -35,25 +35,25 @@ public class MenuManager : MonoBehaviour
 
     public void HandleTurnChange(Player player) {
         _currentPlayer = player;
-        pearlsText.SetText(_currentPlayer.getPearls().ToString());
+        pearlsText.SetText(": " + _currentPlayer.getPearls().ToString());
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
-        hammersText.SetText(_currentPlayer.getHammers().ToString());
-        ordersText.SetText(_currentPlayer.getOrders().ToString());
+        hammersText.SetText(_currentPlayer.getHammers().ToString()+ "/7");
+        ordersText.SetText(_currentPlayer.getOrders().ToString() + "/5");
         //P2UI.SetActive(false);
         //P1UI.SetActive(true);
     }
 
     void HandlePearlsUpdate(int pearlChange) {
         _currentPlayer.changePearls(pearlChange);
-        pearlsText.SetText(_currentPlayer.getPearls().ToString());
+        pearlsText.SetText(": " + _currentPlayer.getPearls().ToString());
     }
     void HandleHammersUpdate(int hammersChange) {
         _currentPlayer.changePearls(hammersChange);
-        hammersText.SetText(_currentPlayer.getHammers().ToString());
+        hammersText.SetText(_currentPlayer.getHammers().ToString() + "/5");
     }
     void HandleOrdersUpdate(int ordersChange) {
         _currentPlayer.changePearls(ordersChange);
-        ordersText.SetText(_currentPlayer.getOrders().ToString());
+        ordersText.SetText(_currentPlayer.getOrders().ToString() + "/5");
     }
     public void onTurnButtonClick() {
         gm.ChangeTurn(gm.getNextTurn(_currentPlayer));

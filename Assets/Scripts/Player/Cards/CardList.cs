@@ -26,4 +26,5 @@ public class CardList : MonoBehaviour
     {
         
     }
+
 }
