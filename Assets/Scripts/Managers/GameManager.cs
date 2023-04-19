@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public CardList gamesCardList;
 
-    //chris does hud stuff
 
     public enum PlayerTurn {
         PLAYER1,
@@ -127,6 +126,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GamePhase.AUCTION:
+                HandleAuction();
                 break;
 
             case GamePhase.ARMY:
@@ -160,7 +160,6 @@ public class GameManager : MonoBehaviour
                 HandlePhaseChange();
                 break;
 
-        //To Chris. I have move all of these into the handleturnchange in the menu manager. - Kevin
 
             case PlayerTurn.PLAYER2:
                 _currentPlayer = players[1];
@@ -180,11 +179,16 @@ public class GameManager : MonoBehaviour
     private void HandleBuild() {
     }
     private void HandleRecruit() {
-        //RecruitUI.SetActive(true);
+        mm.HandleRecruitMenuChange();
 
     }
+
+    private void HandleAuction()
+    {
+        mm.HandleAuctionMenuChange();
+    }
     private void HandleArmy() {
-        //RecruitUI.SetActive(false);
+        mm.HandleArmyMenuChange();
         if (Input.GetMouseButtonUp(0))
 		{
             if (selectedUnit != null) {
@@ -280,4 +284,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Error getting next player");
         return PlayerTurn.PLAYER1;
     }
+
+
+
+
 }
