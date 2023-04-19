@@ -35,18 +35,10 @@ public class Unit : MonoBehaviour
     }
 
     private bool checkIsNeighbors(HexCell cell) {
-        HexCell checkedCell = currentCell;
-        for (int y = 0; y < card.movement; y++) {
-            for (int x = 0; x < checkedCell.gettotalNeighbors(); x++) {
-                if (cell == checkedCell.getNeighbor(x)) {
-                    Debug.Log("That is a neighbor");
-                    return true;
-                }
-                checkedCell = checkedCell.getNeighbor(y);
-            }
-            checkedCell = currentCell;
+        if (currentCell.coordinates.DistanceTo(cell.coordinates) <= card.movement) {
+            return true;
         }
-        Debug.Log("That is not a neighbor");
+        Debug.Log("Unit can't move that far");
         return false;
     }
 

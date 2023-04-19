@@ -60,6 +60,7 @@ public class MenuManager : MonoBehaviour
     public void HandleArmyMenuChange()
     {
         AuctionUI.SetActive(false);
+        mainUI.SetActive(true);
     }
 
     void HandlePearlsUpdate(int pearlChange) {
