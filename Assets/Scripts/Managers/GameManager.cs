@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GamePhase.AUCTION:
-                //HandleAuction();
+                HandleAuction();
                 break;
 
             case GamePhase.ARMY:

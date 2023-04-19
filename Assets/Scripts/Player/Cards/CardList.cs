@@ -11,6 +11,7 @@ public class CardList : MonoBehaviour
     public class createUnitCardsList
     {
         public Card[] cards;
+        
     }
 
     public createUnitCardsList UnitCards = new createUnitCardsList(); 
@@ -19,6 +20,9 @@ public class CardList : MonoBehaviour
     {
         UnitCards = JsonUtility.FromJson<createUnitCardsList>(json.text);
         Debug.Log("successfull");
+
+        
+        
     }
 
     // Update is called once per frame
