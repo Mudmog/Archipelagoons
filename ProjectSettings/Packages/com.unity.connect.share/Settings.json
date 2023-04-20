@@ -6,7 +6,21 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
+<<<<<<< HEAD
+                "value": "{\"m_Value\":\"C:/Users/Sonic/UnityProjects/Archipelagoons/Build;;;;;;;;;\"}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "firstTime",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "autoPublish",
+                "value": "{\"m_Value\":true}"
+=======
                 "value": "{\"m_Value\":\"C:/Users/KPW59/Unity Games/archipelagoons/Builds;C:/Users/Sonic/UnityProjects/Archipelagoons/Build;;;;;;;;\"}"
+>>>>>>> e776ac953e9ec56dc2d3c8a4e399362b88096256
             }
         ]
     }

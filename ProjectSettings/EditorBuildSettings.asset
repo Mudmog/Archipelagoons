@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/Editor/WorldGrid.unity
@@ -23,4 +24,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Game/MainUI.unity
     guid: 7a881f60b88c19e498ae89081f053183
+=======
+  m_Scenes: []
+>>>>>>> 1ce0b48fa1ffd66734a7858770ea17c1093007d4
   m_configObjects: {}
