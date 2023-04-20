@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         placeBeginnerUnit(grid);
         foreach (Player player in players) {
             player.assignUnits(gamesCardList);
+            player.changePearls(10);
+            player.changeMaxHammers(5);
+            player.changeMaxOrders(7);
+            player.changeHammers(5);
+            player.changeOrders(7);
         }
     }
     void Update() {
@@ -189,17 +194,17 @@ public class GameManager : MonoBehaviour
     }
     private void HandleArmy() {
         mm.HandleArmyMenuChange();
-        if (Input.GetMouseButtonUp(0))
-		{
-            if (selectedUnit != null) {
-                HandleUnitMovement(grid, selectedUnit);
+        if (_currentPlayer.getOrders() > 0) {
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (selectedUnit != null) {
+                    HandleUnitMovement(grid, selectedUnit);
+                }
+                else {
+                    HandleUnitSelection();
+                }     
             }
-            else {
-                HandleUnitSelection();
-            }
-			
-
-		}
+        }
     }
     private void HandleRoundEnd() {
     }
@@ -252,10 +257,11 @@ public class GameManager : MonoBehaviour
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater)
+		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hexGrid.GetCell(hit.point) != unit.getCurrentCell())
 		{
 			unit.updatePosition(hexGrid.GetCell(hit.point));
             selectedUnit = null;
+            mm.HandleOrdersUpdate(-1);
 		}
 	}
 
@@ -285,7 +291,9 @@ public class GameManager : MonoBehaviour
         return PlayerTurn.PLAYER1;
     }
 
-
-
-
+    public GamePhase gamePhase {
+        get {
+            return _currentPhase;
+        }
+    }
 }
