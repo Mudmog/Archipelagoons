@@ -17,7 +17,7 @@ PlayerSettings:
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
-  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashScreen: 0
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
@@ -791,11 +791,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 111af7c8-be4f-422d-8464-4b36feb2598c
+  cloudProjectId: 8269a1d4-e6a1-4a3e-9bcc-54c86550fc2c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Archipelagoons
-  organizationId: kpw6
+  organizationId: cyber_raptor
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
