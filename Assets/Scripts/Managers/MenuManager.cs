@@ -18,7 +18,8 @@ public class MenuManager : MonoBehaviour
     public GameObject RecruitUI;
     public GameObject AuctionUI;
     public GameObject mainUI;
-    public Canvas P1Hand;
+    public GameObject P1Hand;
+    public GameObject P2Hand;
 
 
     void Start()
@@ -40,8 +41,17 @@ public class MenuManager : MonoBehaviour
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
         hammersText.SetText(_currentPlayer.getHammers().ToString()+ "/7");
         ordersText.SetText(_currentPlayer.getOrders().ToString() + "/5");
-        //P2UI.SetActive(false);
-        //P1UI.SetActive(true);
+        if (_currentPlayer.ToString().Remove(8) is "Player 1")
+        {
+            P1Hand.SetActive(true);
+            P2Hand.SetActive(false);
+        }
+        else
+        {
+            P2Hand.SetActive(true);
+            P1Hand.SetActive(false);
+        }
+
     }
 
     public void HandleRecruitMenuChange()

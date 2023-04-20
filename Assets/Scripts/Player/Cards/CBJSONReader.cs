@@ -19,6 +19,7 @@ public class CBJSONReader : MonoBehaviour
     public TMP_Text UnitPower;
     public TMP_Text UnitMovement;
     public TMP_Text UnitAbility;
+    Card card;
 
 
     [System.Serializable]
@@ -28,34 +29,50 @@ public class CBJSONReader : MonoBehaviour
 
     }
 
+    public void setCardStats(Card card)
+    {
+
+                Debug.Log("Found card data: Card name is " + card.name);
+                UnitName.text = card.name;
+                UnitGoon.text = card.goon;
+                UnitDefense.text = ""+card.defense;
+                UnitPower.text = ""+card.power;
+                UnitMovement.text = ""+card.movement;
+                UnitAbility.text = card.ability;
+
+        
+    }
+
     public createUnitCardsList UnitCards = new createUnitCardsList();
     // Start is called before the first frame update
+
+    //
     void Start()
     {
         UnitCards = JsonUtility.FromJson<createUnitCardsList>(json.text);
+
+
         //Debug.Log("successfull");
 
-        //Debug.Log(UnitCards.cards[1].name);    gets stabby crab name
-        //Debug.Log(UnitCards.cards.Length);
+        Debug.Log(CardName);    //gets card name
+        
+        
         int TotalCards = UnitCards.cards.Length;
 
-        Debug.Log(TotalCards);
-        for (int i = 0; i == TotalCards; ++i)
-        { 
+        
+        for (int i = 0; i < TotalCards; ++i)
+        {
+            //Debug.Log(i);
             if(UnitCards.cards[i].name == CardName)
             {
-                Debug.Log("Found card data: Card name is " + UnitCards.cards[i].name);
-                UnitName.text = UnitCards.cards[i].name;
-                UnitGoon.text = UnitCards.cards[i].goon;
-                UnitDefense.text = ""+UnitCards.cards[i].defense;
-                UnitPower.text = "" + UnitCards.cards[i].power;
-                UnitMovement.text = "" + UnitCards.cards[i].movement;
-                UnitAbility.text = UnitCards.cards[i].ability;
+                setCardStats(UnitCards.cards[i]);
+                Debug.Log("card " + CardName + " set to the stats of " +UnitCards.cards[i].name);
             }
-            else
-                Debug.Log("card" +CardName+ "not found");
+            //else
+                //Debug.Log("card " +CardName+ " not found");
         }
-
+        
+        
 
     }
 
