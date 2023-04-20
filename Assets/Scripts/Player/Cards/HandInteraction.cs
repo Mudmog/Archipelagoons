@@ -52,8 +52,10 @@ public class HandInteraction : MonoBehaviour
 
     public void HandleSelectCard()
     {
-        //when the card's button is clicked allow the player to click a hex and instantiate the respective unit
+        //when the card's button is clicked allow the player to click a hex cell
+        //and instantiate the respective unit on that hex cell
         //also instantiates unit card to the first open army field slot
+        
     }
 
     public void HandleDiscardCard()
