@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
     private void HandleUpkeep() {
     }
     private void HandleBuild() {
+        //put in handleunitplayfromhand here.
     }
     private void HandleRecruit() {
         mm.HandleRecruitMenuChange();
@@ -272,6 +273,22 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Selected Unit: " + selectedUnit.ToString());
             }
 		}
+    }
+
+    public void HandleUnitPlayFromHand(HexGrid hexGrid, Unit unit)
+    {
+        //basically the idea is...
+        //clicking card button sets selected unit
+        //clicking a hex instantiates the selected unit's prefab on the board under the player's control (look at a lot of kevins code)
+        //and also instantiates the card on the army field
+
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater)
+        {
+            Instantiate(unit, hexGrid.GetCell(hit.point).transform);
+            selectedUnit = null;
+        }
     }
     
     public PlayerTurn getNextTurn(Player currentPlayer) {
