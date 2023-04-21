@@ -18,4 +18,8 @@ public class Card {
     {
         
     }
+
+    public int getPower () {
+        return power;
+    }
 }
