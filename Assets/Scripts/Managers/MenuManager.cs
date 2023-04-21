@@ -61,6 +61,12 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void DisableRecruitUI()
+    {
+        RecruitUI.SetActive(false);
+
+    }
+
     public void HandleAuctionMenuChange()
     {
         RecruitUI.SetActive(false);

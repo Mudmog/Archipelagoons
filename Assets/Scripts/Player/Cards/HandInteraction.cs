@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class HandInteraction : MonoBehaviour
 {
 
@@ -15,13 +16,27 @@ public class HandInteraction : MonoBehaviour
     public GameObject hiredMussel;
 
 
-    //chris is responsible for the below code that adds card to player hands
-    //if this freaks something you have permission to yell at him
+    
+    GameObject selectedUnitCard;
+    public String cardName;
+    public GameObject gm;
+
+
+
+    void Start()
+    {
+        gm = GameObject.Find("Game Manager");
+    }
+
     public void HandleAddCard(Player player, String card)
     {
+        
+        
+
         //track each players amount of cards in hand, multiply by (n-1)*.75 to get X position to instantiate the prefab at
         if (player.name is "Player 1")
         {
+            
             Player1HandSize++;
             Debug.Log(card + " should be given to " + player.name);
             Debug.Log(player.name+" should have "+Player1HandSize+" cards in hand");
@@ -52,10 +67,22 @@ public class HandInteraction : MonoBehaviour
 
     public void HandleSelectCard()
     {
-        //when the card's button is clicked allow the player to click a hex cell
-        //and instantiate the respective unit on that hex cell
-        //also instantiates unit card to the first open army field slot
+
+
+        gm.GetComponent<GameManager>().SetSelectedCard(cardName);
         
+        //when card button is clicked, selected unit card = respective unit 
+        //then reference handlebuildunit
+    }
+
+
+    public void HandleBuildUnit(String UnitName)
+    {
+
+       
+        //instantiate the selected unit on that hex cell
+        //allow the player to click a hex cell
+        //also instantiates unit card to the first open army field slot
     }
 
     public void HandleDiscardCard()
@@ -65,15 +92,7 @@ public class HandInteraction : MonoBehaviour
         //rearrange card positions
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }

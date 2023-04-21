@@ -4,8 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Game/TargetingTest.unity
     guid: 2447bab22efc04b449a99034ee422cec
+=======
+  m_Scenes: []
+>>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
   m_configObjects: {}

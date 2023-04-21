@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public CardList gamesCardList;
 
+    //chris card stuff below
+    public String selectedCard;
+    public GameObject GuppyGoon;
+    public GameObject StabbyCrab;
+    public GameObject HiredMussel;
+    public bool IsCardSelected;
+
 
     public enum PlayerTurn {
         PLAYER1,
@@ -66,10 +73,17 @@ public class GameManager : MonoBehaviour
             player.changeMaxOrders(7);
             player.changeHammers(5);
             player.changeOrders(7);
+            HandleRecruit();
+            
         }
     }
     void Update() {
         UpdatePhase(_currentPhase);
+        if(IsCardSelected is true)
+        {
+            if(Input.GetMouseButtonDown(0))
+                HandleBuildUnit(selectedCard);
+        }
     }
     void UpdateState(GameState state) {
 
@@ -113,6 +127,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GamePhase.UPKEEP:
+                mm.DisableRecruitUI();
                 HandleUpkeep();
                 //each client simotaniously moves
                 //make sure they are done before moving on
@@ -183,6 +198,7 @@ public class GameManager : MonoBehaviour
     private void HandleUpkeep() {
     }
     private void HandleBuild() {
+        //put in handleunitplayfromhand here.
     }
     private void HandleRecruit() {
         mm.HandleRecruitMenuChange();
@@ -262,8 +278,7 @@ public class GameManager : MonoBehaviour
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater 
-        && hit.transform.gameObject.tag is not "Unit")
+		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
 		{
 			unit.updatePosition(hexGrid.GetCell(hit.point), mm);
             selectedUnit = null;
@@ -305,9 +320,67 @@ public class GameManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     public Player currentPlayer {
         get {
             return _currentPlayer;
         }
     }
+=======
+
+
+    //chris unit building shit below
+
+    public void SetSelectedCard(String selectedCardName)
+    {
+        selectedCard = selectedCardName;
+        Debug.Log(selectedCardName + " selected");
+        IsCardSelected = true;
+        
+        
+    }
+
+    public void HandleBuildUnit(String cardName)
+    {
+
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        HexGrid hexGrid = grid;
+
+        if(cardName is "Guppy Goon")
+        {
+            if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
+            {
+                HexCell selectedCell = hexGrid.GetCell(hit.point);
+                Debug.Log("selected hex location for building unit "+cardName+" : " + new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z));
+                Instantiate(GuppyGoon, new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z), Quaternion.identity);
+                IsCardSelected = false;
+            }
+        }
+        if (cardName is "Stabby Crab")
+        {
+            if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
+            {
+                HexCell selectedCell = hexGrid.GetCell(hit.point);
+                Debug.Log("selected hex location for building unit " + cardName + " : " + new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z));
+                Instantiate(StabbyCrab, new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z), Quaternion.identity);
+                IsCardSelected = false;
+            }
+        }
+
+        if (cardName is "Hired Mussel")
+        {
+            if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
+            {
+                HexCell selectedCell = hexGrid.GetCell(hit.point);
+                Debug.Log("selected hex location for building unit " + cardName + " : " + new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z));
+                Instantiate(HiredMussel, new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z), Quaternion.identity);
+                IsCardSelected = false;
+            }
+        }
+    }
+
+
+
+>>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
 }

@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+>>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2064,6 +2068,8 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
   hiredMussel: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
+  cardName: 
+  gm: {fileID: 1861935374}
 --- !u!1001 &320789845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12259,6 +12265,10 @@ MonoBehaviour:
   _currentPlayer: {fileID: 0}
   selectedUnit: {fileID: 0}
   gamesCardList: {fileID: 846359215}
+  selectedCard: 
+  GuppyGoon: {fileID: 7328861141958220840, guid: db78fc29db2b96843965a8d5d4a50dbb, type: 3}
+  StabbyCrab: {fileID: 3222486733224121459, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
+  HiredMussel: {fileID: 5373553310557698007, guid: 470c718009d73994aa66b57dff7441b2, type: 3}
 --- !u!4 &1861935376
 Transform:
   m_ObjectHideFlags: 0
@@ -12304,6 +12314,8 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
   hiredMussel: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
+  cardName: 
+  gm: {fileID: 1861935374}
 --- !u!1 &1885593138
 GameObject:
   m_ObjectHideFlags: 0
@@ -13057,6 +13069,8 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
   hiredMussel: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
+  cardName: 
+  gm: {fileID: 1861935374}
 --- !u!4 &1940649453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c37dc8031760cd148bb41a00c8669d18, type: 3}
