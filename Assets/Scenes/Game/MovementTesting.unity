@@ -8815,6 +8815,10 @@ MonoBehaviour:
   baseUnit: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
   units:
   - {fileID: 0}
+  unitCount: 0
+  guppygoon: {fileID: 0}
+  stabbycrab: {fileID: 0}
+  hiredmussel: {fileID: 0}
 --- !u!4 &1431965824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
@@ -12269,6 +12273,9 @@ MonoBehaviour:
   GuppyGoon: {fileID: 7328861141958220840, guid: db78fc29db2b96843965a8d5d4a50dbb, type: 3}
   StabbyCrab: {fileID: 3222486733224121459, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
   HiredMussel: {fileID: 5373553310557698007, guid: 470c718009d73994aa66b57dff7441b2, type: 3}
+  IsCardSelected: 0
+  Player1Control: {fileID: 1918485376}
+  Player2Control: {fileID: 1431965824}
 --- !u!4 &1861935376
 Transform:
   m_ObjectHideFlags: 0
@@ -12944,6 +12951,10 @@ MonoBehaviour:
   baseUnit: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
   units:
   - {fileID: 0}
+  unitCount: 0
+  guppygoon: {fileID: -5740641857292444511, guid: db78fc29db2b96843965a8d5d4a50dbb, type: 3}
+  stabbycrab: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
+  hiredmussel: {fileID: 8684206837117774868, guid: 470c718009d73994aa66b57dff7441b2, type: 3}
 --- !u!4 &1918485376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
