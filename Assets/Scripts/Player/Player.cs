@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     private int pearls_pt;
     private int pearl_range;
     private int hammers;
+    private int maxHammers;
     private int orders;
+    private int maxOrders;
     public UnitList army;
     private int victory_points; 
     private int islands_controlled;
@@ -32,11 +34,29 @@ public class Player : MonoBehaviour
     public int getHammers() {
         return hammers;
     }
+    public void resetHammers() {
+        hammers = maxHammers;
+    }
+    public void changeMaxHammers(int hammerAmount) {
+        maxHammers += hammerAmount;
+    }
+    public int getMaxHammers() {
+        return maxHammers;
+    }
     public void changeOrders(int ordersAmount) {
         orders += ordersAmount;
     }
     public int getOrders() {
         return orders;
+    }
+    public void resetOrders() {
+        orders = maxOrders;
+    }
+    public void changeMaxOrders(int orderAmount) {
+        maxOrders += orderAmount;
+    }
+    public int getMaxOrders() {
+        return maxOrders;
     }
 
     public Unit getArmyUnit(Unit unit) {
@@ -58,11 +78,9 @@ public class Player : MonoBehaviour
             for (int y = 0; y < listOfCards.UnitCards.cards.Length; y++) {
                 tempName = army.units[x].name.Replace("(Clone)", "");
                 if (tempName.Equals(listOfCards.UnitCards.cards[y].name)) {
-                    Debug.Log("Unit is assigned a card");
                     army.units[x].setCard(listOfCards.UnitCards.cards[y]);
                 }
             }
-            Debug.Log("Failed to assign Unit a Card");
         }
     }
 }

@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         placeBeginnerUnit(grid);
         foreach (Player player in players) {
             player.assignUnits(gamesCardList);
+            player.changePearls(10);
+            player.changeMaxHammers(5);
+            player.changeMaxOrders(7);
+            player.changeHammers(5);
+            player.changeOrders(7);
         }
     }
     void Update() {
@@ -189,17 +194,17 @@ public class GameManager : MonoBehaviour
     }
     private void HandleArmy() {
         mm.HandleArmyMenuChange();
-        if (Input.GetMouseButtonUp(0))
-		{
-            if (selectedUnit != null) {
-                HandleUnitMovement(grid, selectedUnit);
+        if (_currentPlayer.getOrders() > 0) {
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (selectedUnit != null) {
+                    HandleUnitMovement(grid, selectedUnit);
+                }
+                else {
+                    HandleUnitSelection();
+                }     
             }
-            else {
-                HandleUnitSelection();
-            }
-			
-
-		}
+        }
     }
     private void HandleRoundEnd() {
     }
@@ -231,7 +236,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GamePhase.ROUNDEND:
-                 UpdatePhase(GamePhase.UPKEEP);
+                foreach (Player player in players) {
+                    player.resetOrders();
+                    player.resetHammers();
+                 }
+                UpdatePhase(GamePhase.UPKEEP);
                 break;
             
             default:
@@ -252,11 +261,15 @@ public class GameManager : MonoBehaviour
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater)
+		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater 
+        && hit.transform.gameObject.tag is not "Unit")
 		{
-			unit.updatePosition(hexGrid.GetCell(hit.point));
+			unit.updatePosition(hexGrid.GetCell(hit.point), mm);
             selectedUnit = null;
 		}
+        else if (unit.checkIsNeighbors(hit.transform.gameObject.GetComponentInParent<Unit>().getCurrentCell())) {
+            Debug.Log("Would you like to attack?");
+        }
 	}
 
     public void HandleUnitSelection() {
@@ -273,7 +286,7 @@ public class GameManager : MonoBehaviour
             }
 		}
     }
-    
+
     public PlayerTurn getNextTurn(Player currentPlayer) {
         if (currentPlayer == players[0]) {
             return PlayerTurn.PLAYER2; 
@@ -285,7 +298,9 @@ public class GameManager : MonoBehaviour
         return PlayerTurn.PLAYER1;
     }
 
-
-
-
+    public GamePhase gamePhase {
+        get {
+            return _currentPhase;
+        }
+    }
 }
