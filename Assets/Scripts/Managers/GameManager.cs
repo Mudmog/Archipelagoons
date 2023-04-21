@@ -236,7 +236,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GamePhase.ROUNDEND:
-                 UpdatePhase(GamePhase.UPKEEP);
+                foreach (Player player in players) {
+                    player.resetOrders();
+                    player.resetHammers();
+                 }
+                UpdatePhase(GamePhase.UPKEEP);
                 break;
             
             default:
@@ -257,12 +261,15 @@ public class GameManager : MonoBehaviour
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hexGrid.GetCell(hit.point) != unit.getCurrentCell())
+		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater 
+        && hit.transform.gameObject.tag is not "Unit")
 		{
-			unit.updatePosition(hexGrid.GetCell(hit.point));
+			unit.updatePosition(hexGrid.GetCell(hit.point), mm);
             selectedUnit = null;
-            mm.HandleOrdersUpdate(-1);
 		}
+        else if (unit.checkIsNeighbors(hit.transform.gameObject.GetComponentInParent<Unit>().getCurrentCell())) {
+            Debug.Log("Would you like to attack?");
+        }
 	}
 
     public void HandleUnitSelection() {
@@ -279,7 +286,7 @@ public class GameManager : MonoBehaviour
             }
 		}
     }
-    
+
     public PlayerTurn getNextTurn(Player currentPlayer) {
         if (currentPlayer == players[0]) {
             return PlayerTurn.PLAYER2; 
