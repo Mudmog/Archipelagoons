@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 5257056050779674609}
   - component: {fileID: 8002940423496180539}
   - component: {fileID: 1515726059004075377}
+  - component: {fileID: 5100585225284405969}
   m_Layer: 6
   m_Name: GuppyGoonCard 1
   m_TagString: Untagged
@@ -1237,3 +1238,16 @@ MonoBehaviour:
   UnitAbility: {fileID: 2624895504966610371}
   UnitCards:
     cards: []
+--- !u!65 &5100585225284405969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363425961889563374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007142857, y: 0.01, z: 0.0005249183}
+  m_Center: {x: 2.6740274e-16, y: 0.00050534727, z: -0.000019511283}
