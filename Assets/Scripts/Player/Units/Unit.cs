@@ -43,4 +43,8 @@ public class Unit : MonoBehaviour
         return false;
     }
 
+    public HexCell getCurrentCell() {
+        return currentCell;
+    }
+
 }
