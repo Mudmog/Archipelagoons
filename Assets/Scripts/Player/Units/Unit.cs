@@ -27,20 +27,39 @@ public class Unit : MonoBehaviour
         return card;
     }
 
-    public void updatePosition(HexCell cell) {
+    public void updatePosition(HexCell cell, MenuManager mm) {
         //Debug.Log(currentCell.Position.ToString());
-        if (checkIsNeighbors(cell)) {
+        if (checkWithinDistance(cell)) {
             currentCell = cell;
             transform.position = new Vector3(currentCell.Position.x, currentCell.WaterSurfaceY, currentCell.Position.z);
+            mm.HandleOrdersUpdate(-1);
         }
     }
 
-    private bool checkIsNeighbors(HexCell cell) {
+    public bool checkWithinDistance(HexCell cell) {
         if (currentCell.coordinates.DistanceTo(cell.coordinates) <= card.movement) {
             return true;
         }
         Debug.Log("Unit can't move that far");
         return false;
+    }
+        public bool checkIsNeighbors(HexCell cell) {
+        if (currentCell.coordinates.DistanceTo(cell.coordinates) == 1) {
+            return true;
+        }
+        Debug.Log("Unit can't move that far");
+        return false;
+    }
+    public bool checkIsNeighbors(HexCell cell, Player player) {
+        if (currentCell.coordinates.DistanceTo(cell.coordinates) == 1) {
+            return true;
+        }
+        Debug.Log("Unit can't move that far");
+        return false;
+    }
+
+    public HexCell getCurrentCell() {
+        return currentCell;
     }
 
 }
