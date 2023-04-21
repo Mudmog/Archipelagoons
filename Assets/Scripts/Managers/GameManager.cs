@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public CardList gamesCardList;
 
+    //chris card stuff below
+    public String selectedCard;
+    public GameObject GuppyGoon;
+    public GameObject StabbyCrab;
+    public GameObject HiredMussel;
+
 
     public enum PlayerTurn {
         PLAYER1,
@@ -262,7 +268,7 @@ public class GameManager : MonoBehaviour
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag is not "Unit")
+		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
 		{
 			unit.updatePosition(hexGrid.GetCell(hit.point), mm);
             selectedUnit = null;
@@ -303,4 +309,36 @@ public class GameManager : MonoBehaviour
             return _currentPhase;
         }
     }
+
+
+
+    //chris card shit below, delete if it doesnt pan out
+
+    public void SetSelectedCard(String selectedCardName)
+    {
+        selectedCard = selectedCardName;
+        Debug.Log(selectedCardName + " selected");
+        HandleBuildUnit(selectedCardName);
+    }
+
+    public void HandleBuildUnit(String cardName)
+    {
+
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        HexGrid hexGrid = grid;
+
+        if(cardName is "Guppy Goon")
+        {
+            if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
+            {
+                HexCell selectedCell = hexGrid.GetCell(hit.point);
+                Debug.Log("selected hex location for building unit "+cardName+" : " + new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z));
+                Instantiate(GuppyGoon, new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z), Quaternion.identity);
+            }
+        }
+
+
+    }
+
 }
