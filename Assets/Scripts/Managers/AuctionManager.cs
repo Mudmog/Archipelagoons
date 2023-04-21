@@ -7,16 +7,27 @@ public class AuctionManager : MonoBehaviour
 {
 
     public TMP_Text pearlBet;
-    public int pearlBetValue = 0;
-    
+    public int pearlBetValue;
+    public GameManager gm;
+    public MenuManager mm;
+      
+    void Start()
+    {
+        pearlBetValue = 0;
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
     public void OnBetUpClick()
     {
         
         pearlBetValue += 1;
         CheckValidPearlAmount();
-        pearlBet.SetText(""+pearlBetValue);
-        Debug.Log("increment bet to "+pearlBetValue);
+        pearlBet.SetText(pearlBetValue.ToString());
+        Debug.Log("increment bet to "+ pearlBetValue);
     }
 
     public void OnBetDownClick()
@@ -24,8 +35,8 @@ public class AuctionManager : MonoBehaviour
         
         pearlBetValue -= 1;
         CheckValidPearlAmount();
-        pearlBet.SetText("" + pearlBetValue);
-        Debug.Log("decrement bet to "+pearlBetValue);
+        pearlBet.SetText(pearlBetValue.ToString());
+        Debug.Log("decrement bet to "+ pearlBetValue);
     }
 
     public void CheckValidPearlAmount()
@@ -35,18 +46,18 @@ public class AuctionManager : MonoBehaviour
         {
             pearlBetValue = 0;
         }
+        else if (pearlBetValue >= gm.currentPlayer.getPearls()) {
+            pearlBetValue = gm.currentPlayer.getPearls();
+        }
+    }
+
+    public void onBetButtonClick() {
+        mm.HandlePearlsUpdate(-pearlBetValue);
+        gm.ChangeTurn(gm.getNextTurn(gm.currentPlayer));
+        pearlBetValue = 0;
+        pearlBet.SetText(pearlBetValue.ToString());   
     }
     
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

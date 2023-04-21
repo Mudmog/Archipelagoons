@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public MenuManager mm;
+    public AuctionManager am;
     public static event Action<GamePhase> OnGamePhaseChange;
     private GameState _currentState;
     private GamePhase _currentPhase;
@@ -301,6 +302,12 @@ public class GameManager : MonoBehaviour
     public GamePhase gamePhase {
         get {
             return _currentPhase;
+        }
+    }
+
+    public Player currentPlayer {
+        get {
+            return _currentPlayer;
         }
     }
 }
