@@ -320,13 +320,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
     public Player currentPlayer {
         get {
             return _currentPlayer;
         }
     }
-=======
+//=======
 
 
     //chris unit building shit below
@@ -382,5 +382,5 @@ public class GameManager : MonoBehaviour
 
 
 
->>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
+//>>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
 }
