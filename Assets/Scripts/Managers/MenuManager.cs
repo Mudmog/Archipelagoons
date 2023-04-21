@@ -39,8 +39,8 @@ public class MenuManager : MonoBehaviour
         _currentPlayer = player;
         pearlsText.SetText(": " + _currentPlayer.getPearls().ToString());
         currentPlayerText.SetText(_currentPlayer.ToString().Remove(8));
-        hammersText.SetText(_currentPlayer.getHammers().ToString()+ "/7");
-        ordersText.SetText(_currentPlayer.getOrders().ToString() + "/5");
+        hammersText.SetText(_currentPlayer.getHammers().ToString()+ "/" + _currentPlayer.getMaxHammers().ToString());
+        ordersText.SetText(_currentPlayer.getOrders().ToString() + "/" + _currentPlayer.getMaxOrders().ToString());
         if (_currentPlayer.ToString().Remove(8) is "Player 1")
         {
             P1Hand.SetActive(true);
@@ -73,17 +73,17 @@ public class MenuManager : MonoBehaviour
         mainUI.SetActive(true);
     }
 
-    void HandlePearlsUpdate(int pearlChange) {
+    public void HandlePearlsUpdate(int pearlChange) {
         _currentPlayer.changePearls(pearlChange);
         pearlsText.SetText(": " + _currentPlayer.getPearls().ToString());
     }
-    void HandleHammersUpdate(int hammersChange) {
-        _currentPlayer.changePearls(hammersChange);
-        hammersText.SetText(_currentPlayer.getHammers().ToString() + "/5");
+    public void HandleHammersUpdate(int hammersChange) {
+        _currentPlayer.changeHammers(hammersChange);
+        hammersText.SetText(_currentPlayer.getHammers().ToString()+ "/" + _currentPlayer.getMaxHammers().ToString());
     }
-    void HandleOrdersUpdate(int ordersChange) {
-        _currentPlayer.changePearls(ordersChange);
-        ordersText.SetText(_currentPlayer.getOrders().ToString() + "/5");
+    public void HandleOrdersUpdate(int ordersChange) {
+        _currentPlayer.changeOrders(ordersChange);
+        ordersText.SetText(_currentPlayer.getOrders().ToString() + "/" + _currentPlayer.getMaxOrders().ToString());
     }
     public void onTurnButtonClick() {
         gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
@@ -103,6 +103,10 @@ public class MenuManager : MonoBehaviour
     public void onMolluskButtonClick()
     {
         hi.HandleAddCard(_currentPlayer, "Hired Mussel");
+        gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
+    }
+
+    public void onStartFishClick() {
         gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
     }
 }
