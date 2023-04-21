@@ -37,6 +37,7 @@ public class Unit : MonoBehaviour
     }
 
     public bool checkWithinDistance(HexCell cell) {
+        Debug.Log(currentCell);
         if (currentCell.coordinates.DistanceTo(cell.coordinates) <= card.movement) {
             return true;
         }
