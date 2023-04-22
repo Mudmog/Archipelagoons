@@ -313,20 +313,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-//<<<<<<< HEAD
-=======
->>>>>>> 9ec199525994d9fd717e4c5151156fc29e8d38cb
+
     public Player currentPlayer {
         get {
             return _currentPlayer;
         }
     }
-<<<<<<< HEAD
-//=======
-=======
-
->>>>>>> 9ec199525994d9fd717e4c5151156fc29e8d38cb
 
 
     //chris unit building shit below
@@ -365,11 +357,5 @@ public class GameManager : MonoBehaviour
         IsCardSelected = false;
                 
     }
-<<<<<<< HEAD
 
-
-
-//>>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
-=======
->>>>>>> 9ec199525994d9fd717e4c5151156fc29e8d38cb
 }
