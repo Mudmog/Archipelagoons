@@ -23,6 +23,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public CardList gamesCardList;
 
+    //chris card stuff below
+    public Card selectedCard;
+    public GameObject GuppyGoon;
+    public GameObject StabbyCrab;
+    public GameObject HiredMussel;
+    public bool IsCardSelected;
+    public Transform Player1Control;
+    public Transform Player2Control;
+
 
     public enum PlayerTurn {
         PLAYER1,
@@ -58,14 +67,13 @@ public class GameManager : MonoBehaviour
         map.Load();
         map.enabled = false;
         UpdatePhase(GamePhase.STARTUP);
-        placeBeginnerUnit(grid);
         foreach (Player player in players) {
-            player.assignUnits(gamesCardList);
             player.changePearls(10);
             player.changeMaxHammers(5);
             player.changeMaxOrders(7);
             player.changeHammers(5);
             player.changeOrders(7);
+            HandleRecruit();
         }
     }
     void Update() {
@@ -113,6 +121,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GamePhase.UPKEEP:
+                mm.DisableRecruitUI();
                 HandleUpkeep();
                 //each client simotaniously moves
                 //make sure they are done before moving on
@@ -183,6 +192,11 @@ public class GameManager : MonoBehaviour
     private void HandleUpkeep() {
     }
     private void HandleBuild() {
+        if(IsCardSelected && _currentPlayer.getHammers() > 0)
+        {
+            if(Input.GetMouseButtonDown(0))
+                HandleBuildUnit(selectedCard);
+        }
     }
     private void HandleRecruit() {
         mm.HandleRecruitMenuChange();
@@ -253,17 +267,11 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void placeBeginnerUnit(HexGrid hexgrid) {
-        players[0].getUnitList().placeFirstUnit(hexgrid.GetCell(new Vector3(69, 9, 87)), players[0]);
-        players[1].getUnitList().placeFirstUnit(hexgrid.GetCell(new Vector3(277, 8, 89)), players[1]);
-    }
-
     public void HandleUnitMovement(HexGrid hexGrid, Unit unit)
 	{
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater 
-        && hit.transform.gameObject.tag is not "Unit")
+		if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
 		{
 			unit.updatePosition(hexGrid.GetCell(hit.point), mm);
             selectedUnit = null;
@@ -309,5 +317,44 @@ public class GameManager : MonoBehaviour
         get {
             return _currentPlayer;
         }
+    }
+
+
+
+    //chris unit building shit below
+
+    public void SetSelectedCard(Card selectedCardName)
+    {
+        if (_currentPhase.ToString() is "BUILD") {
+            selectedCard = selectedCardName;
+            Debug.Log(selectedCard.name + " selected");
+            IsCardSelected = true;
+        }
+        else
+            Debug.Log("may not build unit this phase!");
+
+    }
+
+    public void HandleBuildUnit(Card cardName)
+    {
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        HexGrid hexGrid = grid;
+        string name = cardName.name.Replace(" Card", "");
+
+
+
+        if (Physics.Raycast(inputRay, out hit) && hexGrid.GetCell(hit.point).IsUnderwater && hit.transform.gameObject.tag != "Unit")
+        {
+            HexCell selectedCell = hexGrid.GetCell(hit.point);
+            Debug.Log("selected hex location for building unit "+cardName+" : " + new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z));
+
+
+            _currentPlayer.getUnitList().placeUnit(hexGrid.GetCell(new Vector3(selectedCell.Position.x, selectedCell.WaterSurfaceY, selectedCell.Position.z)), _currentPlayer, name, selectedCard);
+            mm.HandleHammersUpdate(-1);
+        }
+
+        IsCardSelected = false;
+                
     }
 }

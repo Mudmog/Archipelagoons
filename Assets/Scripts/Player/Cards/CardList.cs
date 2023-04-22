@@ -11,19 +11,15 @@ public class CardList : MonoBehaviour
     [System.Serializable]
     public class createUnitCardsList
     {
-        public Card[] cards;
-        
+        public CardData[] cardData;
     }
-
+    [SerializeField]
     public createUnitCardsList UnitCards = new createUnitCardsList(); 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         UnitCards = JsonUtility.FromJson<createUnitCardsList>(json.text);
         Debug.Log("successfull");
-
-        
-        
     }
 
     // Update is called once per frame

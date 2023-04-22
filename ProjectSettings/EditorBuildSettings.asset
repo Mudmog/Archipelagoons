@@ -4,27 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-<<<<<<< HEAD
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Editor/WorldGrid.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Game/MultiplayerNetwork.unity
-    guid: 908439ee8bdf0644f9c8a9a788b5bbc4
-  - enabled: 0
-    path: Assets/Scenes/Game/MovementTesting.unity
-    guid: 8c2de3f4a3549224b85d77fd0f75f0c3
-  - enabled: 0
-    path: Assets/Scenes/Game/An Experiment.unity
-    guid: 434fd389afabb8b43930c36d9edf9467
-  - enabled: 0
-    path: Assets/Scenes/Recruit UI.unity
-    guid: c48d36e993092754992356e35f9736d4
-  - enabled: 0
-    path: Assets/Scenes/Game/MainUI.unity
-    guid: 7a881f60b88c19e498ae89081f053183
-=======
   m_Scenes: []
->>>>>>> 1ce0b48fa1ffd66734a7858770ea17c1093007d4
   m_configObjects: {}
