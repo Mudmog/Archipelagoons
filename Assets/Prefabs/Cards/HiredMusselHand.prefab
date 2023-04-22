@@ -151,7 +151,7 @@ MonoBehaviour:
   guppyGoon: {fileID: 0}
   stabbyCrab: {fileID: 0}
   hiredMussel: {fileID: 0}
-  cardName: Hired Mussel
+  cardName: {fileID: -8328339361973439558, guid: fe36f4ad587a63e499434aa035982499, type: 3}
   gm: {fileID: 0}
 --- !u!1 &2538721022839526273
 GameObject:

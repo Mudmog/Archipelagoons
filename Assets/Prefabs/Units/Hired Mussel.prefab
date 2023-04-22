@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3350149868216715552}
   - component: {fileID: 8684206837117774868}
+  - component: {fileID: -3114812869993316244}
   m_Layer: 0
   m_Name: Hired Mussel
   m_TagString: Unit
@@ -45,6 +46,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b63a16c8c8877448e7e00bf20b8736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3114812869993316244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5373553310557698007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d4c6294d0f17a4a89ceef83ae87c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    name: 
+    goon: 
+    rarity: 
+    ability: 
+    power: 0
+    defense: 0
+    movement: 0
+  cardList: {fileID: 0}
+  nameText: {fileID: 0}
+  goonText: {fileID: 0}
+  rarityText: {fileID: 0}
+  abilityText: {fileID: 0}
+  powerText: {fileID: 0}
+  defenseText: {fileID: 0}
+  movementText: {fileID: 0}
+  unit: {fileID: 0}
 --- !u!1001 &6715344533850767722
 PrefabInstance:
   m_ObjectHideFlags: 0

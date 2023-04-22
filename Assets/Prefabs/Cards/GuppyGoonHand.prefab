@@ -148,10 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1Hand: {fileID: 0}
   Player2Hand: {fileID: 0}
-  guppyGoon: {fileID: 0}
-  stabbyCrab: {fileID: 0}
-  hiredMussel: {fileID: 0}
-  cardName: Guppy Goon
+  guppyGoon: {fileID: 8363425961889563374, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+  stabbyCrab: {fileID: 1715542533978330201, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
+  hiredMussel: {fileID: 1601554490014573578, guid: fe36f4ad587a63e499434aa035982499, type: 3}
+  cardName: {fileID: 190004454277761221, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
   gm: {fileID: 0}
 --- !u!1 &3871537486028526394
 GameObject:

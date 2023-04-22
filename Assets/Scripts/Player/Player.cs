@@ -5,7 +5,7 @@ using Unity.Netcode;
 
 public class Player : MonoBehaviour
 {
-    private int[] hand;
+    private int handsize;
     private int pearls;
     private int pearls_pt;
     private int pearl_range;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     }
 
     public Unit getArmyUnit(Unit unit) {
-        for (int x = 0; x < army.getUnitList().Length; x++) {
+        for (int x = 0; x < army.getUnitList().Count; x++) {
             if(unit == army.getUnitList()[x]) {
                 return army.getUnitList()[x];
             }
@@ -72,13 +72,23 @@ public class Player : MonoBehaviour
         return army;
     }
 
+    public Card getUnitCard(Unit unit) {
+        for (int x = 0; x < army.getUnitList().Count; x++) {
+            if(unit == army.getUnitList()[x]) {
+                return army.getUnitList()[x].getCard();
+            }
+        }
+        Debug.Log("Selected Card not Found");
+        return null;
+    }
+
     public void assignUnits(CardList listOfCards) {
         string tempName = "";
-        for (int x = 0; x < army.units.Length; x++) {
-            for (int y = 0; y < listOfCards.UnitCards.cards.Length; y++) {
+        for (int x = 0; x < army.units.Count; x++) {
+            for (int y = 0; y < listOfCards.UnitCards.cardData.Length; y++) {
                 tempName = army.units[x].name.Replace("(Clone)", "");
-                if (tempName.Equals(listOfCards.UnitCards.cards[y].name)) {
-                    army.units[x].setCard(listOfCards.UnitCards.cards[y]);
+                if (tempName.Equals(listOfCards.UnitCards.cardData[y])) {
+                    army.units[x].setCard(listOfCards.UnitCards.cardData[y]);
                 }
             }
         }

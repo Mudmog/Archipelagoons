@@ -6,7 +6,7 @@ public class UnitList : MonoBehaviour
 {
     public Unit baseUnit;
 
-    public Unit[] units;
+    public List<Unit> units;
 
     public int unitCount;
 
@@ -26,24 +26,38 @@ public class UnitList : MonoBehaviour
         units[0].setCell(cell);
     }
 
-    public void placeUnit(HexCell cell, Player player, string unitName)
+    public void placeUnit(HexCell cell, Player player, string unitName, Card card)
     {
 
         
-        if (unitName is "Guppy Goon"){
-            
-            units[unitCount] = Instantiate(guppygoon, new Vector3(cell.Position.x, cell.WaterSurfaceY, cell.Position.z), Quaternion.identity);
-            units[unitCount].transform.parent = player.transform;
-            units[unitCount].setCell(cell);
-            
+        if (unitName is "Guppy Goon"){   
+            units.Add(Instantiate(guppygoon, new Vector3(cell.Position.x, cell.WaterSurfaceY, cell.Position.z), Quaternion.identity)); 
+            units[units.Count - 1].transform.parent = player.transform;
+            units[units.Count - 1].setCell(cell);
+            units[units.Count - 1].setCard(card);
+        }
+        if (unitName is "Stabby Crab"){   
+            units.Add(Instantiate(stabbycrab, new Vector3(cell.Position.x, cell.WaterSurfaceY, cell.Position.z), Quaternion.identity)); 
+            units[units.Count - 1].transform.parent = player.transform;
+            units[units.Count - 1].setCell(cell);
+            units[units.Count - 1].setCard(card);
+        }
+        if (unitName is "Hired Mussel"){   
+            units.Add(Instantiate(guppygoon, new Vector3(cell.Position.x, cell.WaterSurfaceY, cell.Position.z), Quaternion.identity)); 
+            units[units.Count - 1].transform.parent = player.transform;
+            units[units.Count - 1].setCell(cell);
+            units[units.Count - 1].setCard(card);
         }
     }
+    public void addToHand(Unit unit) {
+        units.Add(unit);
+    }
 
-    public Unit[] getUnitList() {
+    public List<Unit> getUnitList() {
         return units;
     }
 
-    public void setUnitList(Unit[] newUnits) {
+    public void setUnitList(List<Unit> newUnits) {
         units = newUnits;
     }
 

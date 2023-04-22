@@ -18,7 +18,7 @@ public class HandInteraction : MonoBehaviour
 
     
     GameObject selectedUnitCard;
-    public String cardName;
+    public Card cardName;
     public GameObject gm;
 
 
