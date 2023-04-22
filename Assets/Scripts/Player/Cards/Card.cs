@@ -5,13 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.Netcode;
 
-[System.Serializable]
 public class CardData {
     public string name, goon, rarity, ability;
     public int power, defense, movement;
 }
 
-[System.Serializable]
 public class Card : MonoBehaviour
 {
     public CardData data;

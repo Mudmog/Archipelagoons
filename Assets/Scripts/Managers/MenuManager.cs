@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     public TMP_Text HUDActivePlayer2;
     public GameObject RecruitUI;
     public GameObject AuctionUI;
+    public GameObject mainUIOther;
     public GameObject mainUI;
     public GameObject P1Hand;
     public GameObject P2Hand;
@@ -69,14 +70,14 @@ public class MenuManager : MonoBehaviour
     public void HandleAuctionMenuChange()
     {
         RecruitUI.SetActive(false);
-        mainUI.SetActive(false);
+        mainUIOther.SetActive(false);
         AuctionUI.SetActive(true);
     }
 
     public void HandleArmyMenuChange()
     {
         AuctionUI.SetActive(false);
-        mainUI.SetActive(true);
+        mainUIOther.SetActive(true);
     }
 
     public void HandlePearlsUpdate(int pearlChange) {
@@ -109,10 +110,6 @@ public class MenuManager : MonoBehaviour
     public void onMolluskButtonClick()
     {
         hi.HandleAddCard(_currentPlayer, "Hired Mussel");
-        gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
-    }
-
-    public void onStartFishClick() {
         gm.ChangeTurn(gm.getNextTurn(_currentPlayer));
     }
 }

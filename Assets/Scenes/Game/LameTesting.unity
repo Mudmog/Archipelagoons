@@ -434,9 +434,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 683816482}
-        m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
-        m_MethodName: onBetButtonClick
+      - m_Target: {fileID: 1747145226}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: onTurnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2064,8 +2064,6 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
   hiredMussel: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
-  cardName: 
-  gm: {fileID: 0}
 --- !u!1001 &320789845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5191,6 +5189,7 @@ GameObject:
   - component: {fileID: 911976830}
   - component: {fileID: 911976829}
   - component: {fileID: 911976828}
+  - component: {fileID: 911976831}
   m_Layer: 0
   m_Name: Bet Down
   m_TagString: Untagged
@@ -5262,7 +5261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 683816482}
+      - m_Target: {fileID: 1545073807}
         m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
         m_MethodName: OnBetDownClick
         m_Mode: 1
@@ -5312,6 +5311,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911976826}
   m_CullTransparentMesh: 1
+--- !u!114 &911976831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911976826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pearlBet: {fileID: 1545073805}
+  pearlBetValue: 0
 --- !u!1 &921529277
 GameObject:
   m_ObjectHideFlags: 0
@@ -8796,10 +8809,6 @@ MonoBehaviour:
   baseUnit: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
   units:
   - {fileID: 0}
-  unitCount: 0
-  guppygoon: {fileID: 0}
-  stabbycrab: {fileID: 0}
-  hiredmussel: {fileID: 0}
 --- !u!4 &1431965824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
@@ -8817,6 +8826,7 @@ GameObject:
   - component: {fileID: 1432511833}
   - component: {fileID: 1432511832}
   - component: {fileID: 1432511831}
+  - component: {fileID: 1432511834}
   m_Layer: 0
   m_Name: Bet Up
   m_TagString: Untagged
@@ -8888,7 +8898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 683816482}
+      - m_Target: {fileID: 1545073807}
         m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
         m_MethodName: OnBetUpClick
         m_Mode: 1
@@ -8938,6 +8948,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432511829}
   m_CullTransparentMesh: 1
+--- !u!114 &1432511834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432511829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pearlBet: {fileID: 1545073805}
+  pearlBetValue: 0
 --- !u!1001 &1441113236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9533,6 +9557,7 @@ GameObject:
   - component: {fileID: 1545073804}
   - component: {fileID: 1545073806}
   - component: {fileID: 1545073805}
+  - component: {fileID: 1545073807}
   m_Layer: 5
   m_Name: pearlBet
   m_TagString: Untagged
@@ -9657,6 +9682,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545073803}
   m_CullTransparentMesh: 1
+--- !u!114 &1545073807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545073803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pearlBet: {fileID: 1545073805}
+  pearlBetValue: 0
 --- !u!1 &1548331410
 GameObject:
   m_ObjectHideFlags: 0
@@ -10787,6 +10826,7 @@ MonoBehaviour:
   HUDActivePlayer2: {fileID: 0}
   RecruitUI: {fileID: 1806153964}
   AuctionUI: {fileID: 683816480}
+  mainUIOther: {fileID: 1149265501}
   mainUI: {fileID: 1747145224}
   P1Hand: {fileID: 288033566}
   P2Hand: {fileID: 1940554890}
@@ -12210,6 +12250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mm: {fileID: 1747145226}
+  am: {fileID: 0}
   map: {fileID: 1861935377}
   grid: {fileID: 1917542726}
   players:
@@ -12218,13 +12259,6 @@ MonoBehaviour:
   _currentPlayer: {fileID: 0}
   selectedUnit: {fileID: 0}
   gamesCardList: {fileID: 846359215}
-  selectedCard: 
-  GuppyGoon: {fileID: 0}
-  StabbyCrab: {fileID: 0}
-  HiredMussel: {fileID: 0}
-  IsCardSelected: 0
-  Player1Control: {fileID: 0}
-  Player2Control: {fileID: 0}
 --- !u!4 &1861935376
 Transform:
   m_ObjectHideFlags: 0
@@ -12270,8 +12304,6 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
   hiredMussel: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
-  cardName: 
-  gm: {fileID: 0}
 --- !u!1 &1885593138
 GameObject:
   m_ObjectHideFlags: 0
@@ -12900,10 +12932,6 @@ MonoBehaviour:
   baseUnit: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
   units:
   - {fileID: 0}
-  unitCount: 0
-  guppygoon: {fileID: 0}
-  stabbycrab: {fileID: 0}
-  hiredmussel: {fileID: 0}
 --- !u!4 &1918485376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
@@ -13029,8 +13057,6 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
   hiredMussel: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
-  cardName: 
-  gm: {fileID: 0}
 --- !u!4 &1940649453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c37dc8031760cd148bb41a00c8669d18, type: 3}
