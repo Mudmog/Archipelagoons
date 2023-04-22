@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5415374424932930775}
   - component: {fileID: -5740641857292444511}
+  - component: {fileID: -1968256082820800896}
   m_Layer: 0
   m_Name: Guppy Goon
   m_TagString: Unit
@@ -45,6 +46,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b63a16c8c8877448e7e00bf20b8736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1968256082820800896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7328861141958220840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7e5005963b48841bf4255a02adaf29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    name: 
+    goon: 
+    rarity: 
+    ability: 
+    power: 0
+    defense: 0
+    movement: 0
+  cardList: {fileID: 0}
+  nameText: {fileID: 0}
+  goonText: {fileID: 0}
+  rarityText: {fileID: 0}
+  abilityText: {fileID: 0}
+  powerText: {fileID: 0}
+  defenseText: {fileID: 0}
+  movementText: {fileID: 0}
+  unit: {fileID: 0}
 --- !u!1001 &5193508282336649842
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -39,10 +39,14 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 =======
   m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
 >>>>>>> bef73e92dcb0c09657dff7378d2bea190e53263e
+=======
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+>>>>>>> 9ec199525994d9fd717e4c5151156fc29e8d38cb
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -438,9 +442,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747145226}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: onTurnButtonClick
+      - m_Target: {fileID: 683816482}
+        m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
+        m_MethodName: onBetButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1179,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2068,7 +2072,7 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
   hiredMussel: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
-  cardName: 
+  cardName: {fileID: 0}
   gm: {fileID: 1861935374}
 --- !u!1001 &320789845
 PrefabInstance:
@@ -2706,6 +2710,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37dc8031760cd148bb41a00c8669d18, type: 3}
+--- !u!114 &490626188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1601554489414712859, guid: fe36f4ad587a63e499434aa035982499, type: 3}
+  m_PrefabInstance: {fileID: 4705919305091895123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &515038797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3366,6 +3381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pearlBet: {fileID: 1545073805}
   pearlBetValue: 0
+  gm: {fileID: 1861935375}
+  mm: {fileID: 1747145226}
 --- !u!1001 &687700794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3654,7 +3671,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &708969402
 GameObject:
@@ -3687,7 +3704,7 @@ Transform:
   m_Children:
   - {fileID: 937207031}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &708969404
 MonoBehaviour:
@@ -4755,13 +4772,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846359211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &846359215
 MonoBehaviour:
@@ -4777,7 +4794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   json: {fileID: 4900000, guid: ae5ef17fcd8da5a4b82e012e85ef34bc, type: 3}
   UnitCards:
-    cards: []
+    cardData: []
 --- !u!1 &846643970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,7 +5212,6 @@ GameObject:
   - component: {fileID: 911976830}
   - component: {fileID: 911976829}
   - component: {fileID: 911976828}
-  - component: {fileID: 911976831}
   m_Layer: 0
   m_Name: Bet Down
   m_TagString: Untagged
@@ -5267,7 +5283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545073807}
+      - m_Target: {fileID: 683816482}
         m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
         m_MethodName: OnBetDownClick
         m_Mode: 1
@@ -5317,20 +5333,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911976826}
   m_CullTransparentMesh: 1
---- !u!114 &911976831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911976826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pearlBet: {fileID: 1545073805}
-  pearlBetValue: 0
 --- !u!1 &921529277
 GameObject:
   m_ObjectHideFlags: 0
@@ -5856,6 +5858,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb04f41bb7a291e42a39af3f98d1ed26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &993065626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2624895504966610371, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+  m_PrefabInstance: {fileID: 2523926168704068247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &994912800
@@ -8537,7 +8550,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -8813,12 +8826,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseUnit: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
-  units:
-  - {fileID: 0}
+  units: []
   unitCount: 0
-  guppygoon: {fileID: 0}
-  stabbycrab: {fileID: 0}
-  hiredmussel: {fileID: 0}
+  guppygoon: {fileID: -5740641857292444511, guid: db78fc29db2b96843965a8d5d4a50dbb, type: 3}
+  stabbycrab: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
+  hiredmussel: {fileID: 8684206837117774868, guid: 470c718009d73994aa66b57dff7441b2, type: 3}
 --- !u!4 &1431965824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
@@ -8836,7 +8848,6 @@ GameObject:
   - component: {fileID: 1432511833}
   - component: {fileID: 1432511832}
   - component: {fileID: 1432511831}
-  - component: {fileID: 1432511834}
   m_Layer: 0
   m_Name: Bet Up
   m_TagString: Untagged
@@ -8908,7 +8919,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545073807}
+      - m_Target: {fileID: 683816482}
         m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
         m_MethodName: OnBetUpClick
         m_Mode: 1
@@ -8958,20 +8969,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432511829}
   m_CullTransparentMesh: 1
---- !u!114 &1432511834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432511829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pearlBet: {fileID: 1545073805}
-  pearlBetValue: 0
 --- !u!1001 &1441113236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9567,7 +9564,6 @@ GameObject:
   - component: {fileID: 1545073804}
   - component: {fileID: 1545073806}
   - component: {fileID: 1545073805}
-  - component: {fileID: 1545073807}
   m_Layer: 5
   m_Name: pearlBet
   m_TagString: Untagged
@@ -9692,20 +9688,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545073803}
   m_CullTransparentMesh: 1
---- !u!114 &1545073807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545073803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pearlBet: {fileID: 1545073805}
-  pearlBetValue: 0
 --- !u!1 &1548331410
 GameObject:
   m_ObjectHideFlags: 0
@@ -12269,7 +12251,7 @@ MonoBehaviour:
   _currentPlayer: {fileID: 0}
   selectedUnit: {fileID: 0}
   gamesCardList: {fileID: 846359215}
-  selectedCard: 
+  selectedCard: {fileID: 0}
   GuppyGoon: {fileID: 7328861141958220840, guid: db78fc29db2b96843965a8d5d4a50dbb, type: 3}
   StabbyCrab: {fileID: 3222486733224121459, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
   HiredMussel: {fileID: 5373553310557698007, guid: 470c718009d73994aa66b57dff7441b2, type: 3}
@@ -12289,7 +12271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1861935377
 MonoBehaviour:
@@ -12321,7 +12303,7 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
   hiredMussel: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
-  cardName: 
+  cardName: {fileID: 0}
   gm: {fileID: 1861935374}
 --- !u!1 &1885593138
 GameObject:
@@ -12717,7 +12699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1917542728
 MeshRenderer:
@@ -12871,7 +12853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2151141348361925690, guid: 743f027e210a3c246be878f9792619fc, type: 3}
       propertyPath: m_LocalScale.x
@@ -12949,8 +12931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseUnit: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
-  units:
-  - {fileID: 0}
+  units: []
   unitCount: 0
   guppygoon: {fileID: -5740641857292444511, guid: db78fc29db2b96843965a8d5d4a50dbb, type: 3}
   stabbycrab: {fileID: 7596353202456359938, guid: e4e85bc6fac6102448a1d4e9d9f455a3, type: 3}
@@ -13080,7 +13061,7 @@ MonoBehaviour:
   guppyGoon: {fileID: 3871537486028526394, guid: 416f40ca359c3514a827d0f1a88f94d2, type: 3}
   stabbyCrab: {fileID: 4243303303727996251, guid: f44415f6a0c64f348921b7f5391ba7b1, type: 3}
   hiredMussel: {fileID: 2538721022839526273, guid: 3ab843361466de1428851d00aecafbda, type: 3}
-  cardName: 
+  cardName: {fileID: 0}
   gm: {fileID: 1861935374}
 --- !u!4 &1940649453 stripped
 Transform:
@@ -13772,9 +13753,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581366044}
     m_Modifications:
+    - target: {fileID: 190004454277761221, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+      propertyPath: cardList
+      value: 
+      objectReference: {fileID: 846359215}
+    - target: {fileID: 190004454277761221, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+      propertyPath: rarityText
+      value: 
+      objectReference: {fileID: 993065626}
+    - target: {fileID: 190004454277761221, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+      propertyPath: abilityText
+      value: 
+      objectReference: {fileID: 993065626}
     - target: {fileID: 8363425961889563374, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
       propertyPath: m_Name
-      value: GuppyGoonCard
+      value: Guppy Goon Card
       objectReference: {fileID: 0}
     - target: {fileID: 9176940989049559124, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
       propertyPath: m_RootOrder
@@ -13820,7 +13813,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1515726059004075377, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+    - {fileID: 190004454277761221, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
 --- !u!1001 &4705919305091895123
 PrefabInstance:
@@ -13829,6 +13824,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581366044}
     m_Modifications:
+    - target: {fileID: -8328339361973439558, guid: fe36f4ad587a63e499434aa035982499, type: 3}
+      propertyPath: cardList
+      value: 
+      objectReference: {fileID: 846359215}
+    - target: {fileID: -8328339361973439558, guid: fe36f4ad587a63e499434aa035982499, type: 3}
+      propertyPath: rarityText
+      value: 
+      objectReference: {fileID: 490626188}
     - target: {fileID: 1601554490014573574, guid: fe36f4ad587a63e499434aa035982499, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -13875,9 +13878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1601554490014573578, guid: fe36f4ad587a63e499434aa035982499, type: 3}
       propertyPath: m_Name
-      value: HiredMusselCard
+      value: Hired Mussel Card
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1601554490014573573, guid: fe36f4ad587a63e499434aa035982499, type: 3}
+    - {fileID: -8328339361973439558, guid: fe36f4ad587a63e499434aa035982499, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe36f4ad587a63e499434aa035982499, type: 3}
 --- !u!4 &6302530384335203157 stripped
 Transform:
@@ -13896,6 +13901,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581366044}
     m_Modifications:
+    - target: {fileID: 1782978716281527, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
+      propertyPath: cardList
+      value: 
+      objectReference: {fileID: 846359215}
     - target: {fileID: 1715542533978330197, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -13942,9 +13951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715542533978330201, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
       propertyPath: m_Name
-      value: StabbyCrabCard
+      value: Stabby Crab Card
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1715542533978330200, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
+    - {fileID: 1782978716281527, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
 --- !u!4 &8566110110576721261 stripped
 Transform:

@@ -14,14 +14,31 @@ public class Unit : MonoBehaviour
         currentCell = cell;
     }
 
-    public void setCard(Card playerCard) {
+    public void setCard(CardData playerCard) {
         if (playerCard.name.Equals(this.name.Replace("(Clone)", ""))) {
-            card = playerCard;
+            card.setCardData(playerCard);
         }
         else {
             Debug.Log("Card name doesn't match unit");
         }
-        
+    }
+       public void setCard(string playerCard, CardList cards) {
+        if (playerCard.Equals(this.name.Replace("(Clone)", ""))) {
+            for (int x = 0; x <  cards.UnitCards.cardData.Length; x++) {
+                if (cards.UnitCards.cardData[x].name.Equals(playerCard)) {
+                    card.setCardData(cards.UnitCards.cardData[x]);
+                }
+            }
+        }
+        else {
+            Debug.Log("Card name doesn't match unit");
+        }
+    }
+
+    public void setCard(Card newCard) {
+        card = newCard;
+        card.setCardData(newCard.getCardData());
+        Debug.Log("This cards speed is: " + newCard.data.cardMovement);
     }
     public Card getCard() {
         return card;
@@ -37,8 +54,8 @@ public class Unit : MonoBehaviour
     }
 
     public bool checkWithinDistance(HexCell cell) {
-        Debug.Log(currentCell);
-        if (currentCell.coordinates.DistanceTo(cell.coordinates) <= card.movement) {
+        Debug.Log(card.getCardData().movement);
+        if (currentCell.coordinates.DistanceTo(cell.coordinates) <= card.getCardData().movement) {
             return true;
         }
         Debug.Log("Unit can't move that far");
