@@ -26,6 +26,18 @@ public class HandInteraction : MonoBehaviour
     void Start()
     {
         gm = GameObject.Find("Game Manager");
+        Debug.Log(this.name);
+        if (this.name is "GuppyGoonHand(Clone)") {
+            cardName = GameObject.Find("Guppy Goon Card").GetComponent<Card>();
+            Debug.Log("The card was found: " + cardName);
+        }
+        if (this.name is "HiredMusselHand(Clone)") {
+            cardName = GameObject.Find("Hired Mussel Card").GetComponent<Card>();
+        }
+        if (this.name is "StabbyCrabHand(Clone)") {
+            cardName = GameObject.Find("Stabby Crab Card").GetComponent<Card>();
+        }
+        Debug.Log("Wait What " + cardName);
     }
 
     public void HandleAddCard(Player player, String card)

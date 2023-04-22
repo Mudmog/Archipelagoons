@@ -434,9 +434,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747145226}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: onTurnButtonClick
+      - m_Target: {fileID: 683816482}
+        m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
+        m_MethodName: onBetButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3373,6 +3373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pearlBet: {fileID: 1545073805}
   pearlBetValue: 0
+  gm: {fileID: 1861935375}
+  mm: {fileID: 1747145226}
 --- !u!1001 &687700794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5202,7 +5204,6 @@ GameObject:
   - component: {fileID: 911976830}
   - component: {fileID: 911976829}
   - component: {fileID: 911976828}
-  - component: {fileID: 911976831}
   m_Layer: 0
   m_Name: Bet Down
   m_TagString: Untagged
@@ -5274,7 +5275,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545073807}
+      - m_Target: {fileID: 683816482}
         m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
         m_MethodName: OnBetDownClick
         m_Mode: 1
@@ -5324,20 +5325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911976826}
   m_CullTransparentMesh: 1
---- !u!114 &911976831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911976826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pearlBet: {fileID: 1545073805}
-  pearlBetValue: 0
 --- !u!1 &921529277
 GameObject:
   m_ObjectHideFlags: 0
@@ -8853,7 +8840,6 @@ GameObject:
   - component: {fileID: 1432511833}
   - component: {fileID: 1432511832}
   - component: {fileID: 1432511831}
-  - component: {fileID: 1432511834}
   m_Layer: 0
   m_Name: Bet Up
   m_TagString: Untagged
@@ -8925,7 +8911,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545073807}
+      - m_Target: {fileID: 683816482}
         m_TargetAssemblyTypeName: AuctionManager, Assembly-CSharp
         m_MethodName: OnBetUpClick
         m_Mode: 1
@@ -8975,20 +8961,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432511829}
   m_CullTransparentMesh: 1
---- !u!114 &1432511834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432511829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pearlBet: {fileID: 1545073805}
-  pearlBetValue: 0
 --- !u!1001 &1441113236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9584,7 +9556,6 @@ GameObject:
   - component: {fileID: 1545073804}
   - component: {fileID: 1545073806}
   - component: {fileID: 1545073805}
-  - component: {fileID: 1545073807}
   m_Layer: 5
   m_Name: pearlBet
   m_TagString: Untagged
@@ -9709,20 +9680,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545073803}
   m_CullTransparentMesh: 1
---- !u!114 &1545073807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545073803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd837dae531fa46b3844c3ad3ce813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pearlBet: {fileID: 1545073805}
-  pearlBetValue: 0
 --- !u!1 &1548331410
 GameObject:
   m_ObjectHideFlags: 0
@@ -13850,6 +13807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1515726059004075377, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+    - {fileID: 190004454277761221, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
 --- !u!1001 &4705919305091895123
 PrefabInstance:
@@ -13916,6 +13874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1601554490014573573, guid: fe36f4ad587a63e499434aa035982499, type: 3}
+    - {fileID: -8328339361973439558, guid: fe36f4ad587a63e499434aa035982499, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe36f4ad587a63e499434aa035982499, type: 3}
 --- !u!4 &6302530384335203157 stripped
 Transform:
@@ -13988,6 +13947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1715542533978330200, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
+    - {fileID: 1782978716281527, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
 --- !u!4 &8566110110576721261 stripped
 Transform:

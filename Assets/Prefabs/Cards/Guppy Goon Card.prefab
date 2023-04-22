@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 9176940989049559124}
   - component: {fileID: 5257056050779674609}
   - component: {fileID: 8002940423496180539}
-  - component: {fileID: 190004454277761221}
+  - component: {fileID: 4598751683215384928}
   m_Layer: 6
   m_Name: Guppy Goon Card
   m_TagString: Untagged
@@ -1215,7 +1215,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &190004454277761221
+--- !u!114 &4598751683215384928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1224,20 +1224,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8363425961889563374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4d4c6294d0f17a4a89ceef83ae87c97, type: 3}
+  m_Script: {fileID: 11500000, guid: ee7e5005963b48841bf4255a02adaf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  goon: 
-  rarity: 
-  ability: 
-  power: 0
-  defense: 0
-  movement: 0
+  data:
+    name: 
+    goon: 
+    rarity: 
+    ability: 
+    power: 0
+    defense: 0
+    movement: 0
+  cardList: {fileID: 0}
   nameText: {fileID: 5000896935796164533}
   goonText: {fileID: 5908962233704364441}
-  rarityText: {fileID: 0}
-  abilityText: {fileID: 0}
+  rarityText: {fileID: 2624895504966610371}
+  abilityText: {fileID: 2624895504966610371}
   powerText: {fileID: 4075296503891169277}
   defenseText: {fileID: 2167455464161880936}
   movementText: {fileID: 1419781240020163139}
+  unit: {fileID: 0}

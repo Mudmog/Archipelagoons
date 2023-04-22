@@ -43,7 +43,7 @@ public class UnitList : MonoBehaviour
             units[units.Count - 1].setCard(card);
         }
         if (unitName is "Hired Mussel"){   
-            units.Add(Instantiate(guppygoon, new Vector3(cell.Position.x, cell.WaterSurfaceY, cell.Position.z), Quaternion.identity)); 
+            units.Add(Instantiate(hiredmussel, new Vector3(cell.Position.x, cell.WaterSurfaceY, cell.Position.z), Quaternion.identity)); 
             units[units.Count - 1].transform.parent = player.transform;
             units[units.Count - 1].setCell(cell);
             units[units.Count - 1].setCard(card);

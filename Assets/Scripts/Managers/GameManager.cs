@@ -327,7 +327,7 @@ public class GameManager : MonoBehaviour
     {
         if (_currentPhase.ToString() is "BUILD") {
             selectedCard = selectedCardName;
-            Debug.Log(selectedCardName + " selected");
+            Debug.Log(selectedCard.name + " selected");
             IsCardSelected = true;
         }
         else

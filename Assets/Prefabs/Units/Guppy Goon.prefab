@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5415374424932930775}
   - component: {fileID: -5740641857292444511}
-  - component: {fileID: -5111423079964392441}
+  - component: {fileID: -1968256082820800896}
   m_Layer: 0
   m_Name: Guppy Goon
   m_TagString: Unit
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b63a16c8c8877448e7e00bf20b8736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-5111423079964392441
+--- !u!114 &-1968256082820800896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7328861141958220840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4d4c6294d0f17a4a89ceef83ae87c97, type: 3}
+  m_Script: {fileID: 11500000, guid: ee7e5005963b48841bf4255a02adaf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   data:

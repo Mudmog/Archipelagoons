@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4243303302211006786}
   - component: {fileID: 4243303302211006787}
   - component: {fileID: 4243303302211006788}
-  - component: {fileID: 8015959378368802604}
   m_Layer: 5
   m_Name: CardButton
   m_TagString: Untagged
@@ -122,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8015959378368802604}
+      - m_Target: {fileID: 6442803868923922942}
         m_TargetAssemblyTypeName: HandInteraction, Assembly-CSharp
         m_MethodName: HandleSelectCard
         m_Mode: 1
@@ -134,25 +133,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8015959378368802604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4243303302211006790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60030df10720324d95056acd25f1858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player1Hand: {fileID: 0}
-  Player2Hand: {fileID: 0}
-  guppyGoon: {fileID: 0}
-  stabbyCrab: {fileID: 0}
-  hiredMussel: {fileID: 0}
-  cardName: {fileID: 1782978716281527, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
-  gm: {fileID: 0}
 --- !u!1 &4243303303727996251
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +144,7 @@ GameObject:
   - component: {fileID: 4243303303727996250}
   - component: {fileID: 4243303303727996248}
   - component: {fileID: 4243303303727996249}
+  - component: {fileID: 6442803868923922942}
   m_Layer: 5
   m_Name: StabbyCrabHand
   m_TagString: Untagged
@@ -227,3 +208,22 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &6442803868923922942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243303303727996251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60030df10720324d95056acd25f1858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1Hand: {fileID: 0}
+  Player2Hand: {fileID: 0}
+  guppyGoon: {fileID: 0}
+  stabbyCrab: {fileID: 0}
+  hiredMussel: {fileID: 0}
+  cardName: {fileID: 8296608324675216960, guid: cfb0cd215c62bc840b73e09c951d7020, type: 3}
+  gm: {fileID: 0}

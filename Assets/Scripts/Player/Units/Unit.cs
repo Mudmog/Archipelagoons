@@ -37,6 +37,8 @@ public class Unit : MonoBehaviour
 
     public void setCard(Card newCard) {
         card = newCard;
+        card.setCardData(newCard.getCardData());
+        Debug.Log("This cards speed is: " + newCard.data.cardMovement);
     }
     public Card getCard() {
         return card;

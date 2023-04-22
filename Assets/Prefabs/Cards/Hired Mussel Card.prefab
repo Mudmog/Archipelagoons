@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 1601554490014573574}
   - component: {fileID: 1601554490014573575}
   - component: {fileID: 1601554490014573572}
-  - component: {fileID: -8328339361973439558}
+  - component: {fileID: 3547438484529999699}
   m_Layer: 6
   m_Name: Hired Mussel Card
   m_TagString: Untagged
@@ -527,7 +527,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8328339361973439558
+--- !u!114 &3547438484529999699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,24 +536,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1601554490014573578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4d4c6294d0f17a4a89ceef83ae87c97, type: 3}
+  m_Script: {fileID: 11500000, guid: ee7e5005963b48841bf4255a02adaf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 
-  goon: 
-  rarity: 
-  ability: 
-  power: 0
-  defense: 0
-  movement: 0
+  data:
+    name: 
+    goon: 
+    rarity: 
+    ability: 
+    power: 0
+    defense: 0
+    movement: 0
   cardList: {fileID: 0}
   nameText: {fileID: 1601554490777988110}
   goonText: {fileID: 1601554489990339897}
-  rarityText: {fileID: 0}
+  rarityText: {fileID: 1601554489414712859}
   abilityText: {fileID: 1601554489414712859}
   powerText: {fileID: 1601554490698955973}
   defenseText: {fileID: 1601554490118040020}
   movementText: {fileID: 1601554490169831856}
+  unit: {fileID: 0}
 --- !u!1 &1601554490118040021
 GameObject:
   m_ObjectHideFlags: 0
