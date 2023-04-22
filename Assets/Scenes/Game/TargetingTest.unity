@@ -425,6 +425,24 @@ MonoBehaviour:
   bottomLeftBorder: {fileID: 2800000, guid: 07cad18c5f8f61e4aa331a11376fe93e, type: 3}
   topRightBorder: {fileID: 2800000, guid: 14a5c96ef5f82624ca065061ec974887, type: 3}
   bottomRightBorder: {fileID: 2800000, guid: 4d9a32a92c0a12a40892dafdf5893cf1, type: 3}
+--- !u!1 &1261292065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8363425961889563374, guid: 92870fdd74a8d834bb31dc80b33029bc, type: 3}
+  m_PrefabInstance: {fileID: 2026533336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1261292070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261292065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007142857, y: 0.01, z: 0.00052491715}
+  m_Center: {x: 0, y: 0.00050534727, z: -0.000019511222}
 --- !u!1001 &1267305938
 PrefabInstance:
   m_ObjectHideFlags: 0

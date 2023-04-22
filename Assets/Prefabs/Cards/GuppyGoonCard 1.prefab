@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 5257056050779674609}
   - component: {fileID: 8002940423496180539}
   - component: {fileID: 1515726059004075377}
-  - component: {fileID: 5100585225284405969}
+  - component: {fileID: 7926777842898437321}
   m_Layer: 6
   m_Name: GuppyGoonCard 1
   m_TagString: Untagged
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   UnitAbility: {fileID: 2624895504966610371}
   UnitCards:
     cards: []
---- !u!65 &5100585225284405969
+--- !u!65 &7926777842898437321
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
